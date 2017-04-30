@@ -6,18 +6,31 @@
     <title>Family Video</title>
   </head>
   <body class='body' ng-controller='mainCtrl'>
-    <header class='page-header'>
-      <div class='leftNav'>
-      <div class='italic'>Welcome to Our New Site! Returning Customers: Please
+    <header class='header-background page-header'>
+      <div class='leftNav italic'>
+      Welcome to Our New Site! Returning Customers: Please
       <a href="https://familyvideo.com/customer/account/forgotpassword/" class='orangeFont'>Reset Your Password.</a>
     </div>
-    </div>
     <div class='rightLinks'>
-      <input type='text' class='searchInput' value placeholder='Search' maxlength='128'>
-      <span class='origSearchWrapper'>Search <img class = 'searchMagGlass' src ='./pictures/other/business-search.png' alt="Magnifying glass">
+
+      <span ng-hide='searchBarClick' ng-show='!searchBarClick'>
+      <input type='text' class='searchInput' placeholder='Search' maxlength='128'>
+      <img class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass">
+    </span>
+
+      <span ng-click='searchBar()' ng-hide='!searchBarClick' ng-show='searchBarClick' class='origSearchWrapper'>Search <img class = 'searchMagGlass' src ='./pictures/other/business-search.png' alt="Magnifying glass">
       </span>
+
       <a href="https://www.familyvideo.com/storelocator/" title="Find a Store Near You">Find a Store</a>
-    <a href="http://www.highlandventuresltd.com/" title="Career Opportunities at Highland Ventures Ltd.">Career Opportunities</a></div>
+    <a href="http://www.highlandventuresltd.com/" title="Career Opportunities at Highland Ventures Ltd.">Career Opportunities</a>
+  </div>
+
+  <span>
+    <img class='searchMagGlassMinView' src ='./pictures/other/business-search.png' alt="Magnifying glass">
+  </span>
+
+  <div class='header-outer'>
+  </div>
 
 </header>
 

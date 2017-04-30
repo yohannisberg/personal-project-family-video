@@ -1,6 +1,69 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,600");
+@media screen and (max-width: 1024px) {
+  .leftNav {
+    text-align: center;
+    height: 20px;
+    width: 100%; }
+  .rightLinks {
+    display: none; }
+  .searchMagGlassMinView {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    width: 50px; }
+  .header-outer {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    height: 90px;
+    background: black; } }
+
+@media screen and (min-width: 1025px) {
+  .leftNav {
+    /*padding-left: 20px;*/
+    text-align: center;
+    height: 20px;
+    width: 505.188px; }
+  .rightLinks {
+    position: absolute;
+    right: 44.50px;
+    /*margin-left: 20px;*/ }
+  .rightLinks a {
+    width: 77.375;
+    length: 20px;
+    text-decoration: none;
+    color: #d7d7d7;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 20px; }
+  .rightLinks a:hover {
+    text-decoration: underline; }
+  ::-webkit-input-placeholder {
+    color: black; }
+  .searchInput {
+    height: 41px;
+    width: 190px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #ccc;
+    border: 1px solid #c2c2c2;
+    outline-color: initial;
+    outline-style: initial;
+    outline-width: 0px;
+    outline-color: initial;
+    outline-style: initial;
+    padding-left: 9px;
+    padding-right: 35px; }
+  .searchMagGlassMinView {
+    display: none; }
+  .header-outer {
+    display: none; } }
+
 .body {
   color: white;
+  /*background-color: black;*/
   font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -10,14 +73,18 @@
 .page-header {
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
   color: #d7d7d7;
-  background-color: black;
-  height: 45px;
-  width: 100%; }
+  max-width: 1240px;
+  padding: 5px 20px 5px 20px;
+  width: auto; }
 
-.leftNav {
-  padding-left: 20px;
-  padding-right: 20px; }
+.header-background {
+  background-color: black;
+  height: 35px;
+  width: 100%; }
 
 .italic {
   font-style: italic; }
@@ -29,49 +96,23 @@
 .orangeFont:hover {
   text-decoration: underline; }
 
+.inputBackground {
+  position: absolute;
+  top: 9px;
+  left: 199px;
+  width: 50px;
+  background: url("./pictures/other/business-search.png") no-repeat scroll 7px 7px;
+  /*padding-left: 30px;*/ }
+
+.origSearchWrapper {
+  cursor: pointer;
+  margin-right: 20px; }
+
 .searchMagGlass {
   position: absolute;
   top: -4px;
   left: 32px;
   width: 50px; }
-
-.origSearchWrapper {
-  cursor: pointer; }
-
-.rightLinks {
-  position: absolute;
-  right: 20px; }
-
-.rightLinks a {
-  text-decoration: none;
-  color: #d7d7d7;
-  display: inline-block;
-  margin-left: 20px;
-  /*-webkit-margin-before: 1em;
--webkit-margin-after: 1em;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
--webkit-padding-start: 40px;*/ }
-
-.rightLinks a:hover {
-  text-decoration: underline; }
-
-::-webkit-input-placeholder {
-  color: black; }
-
-.searchInput {
-  height: 40px;
-  font-size: 12px;
-  font-weight: 600;
-  background-color: #ccc;
-  border: 1px solid #c2c2c2;
-  outline-color: initial;
-  outline-style: initial;
-  outline-width: 0px;
-  outline-color: initial;
-  outline-style: initial;
-  padding-left: 19px;
-  padding-right: 35px; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

@@ -6,6 +6,19 @@
     <title>Family Video</title>
   </head>
   <body class='body' ng-controller='mainCtrl'>
+
+  <div id="mySidenav" class="sidenav">
+
+  <span class = 'welcomeMenu' href="#">Welcome to Our New Site! Returning Customers: Please Reset Your Password. <a href="javascript:void(0)" class="closebtn theX" ng-click="closeNav()">&times;</a></span>
+  <a class= 'lineAbove' href="#">Browse All</a>
+  <a class= 'lineAbove' href="#">New Release Rentals</a>
+  <a class= 'lineAbove' href="#">New & Coming Soon</a>
+  <a class= 'lineAbove' href="#">Spotlight</a>
+  <a class= 'lineAbove' href="#">Used Movies</a>
+  <a class= 'lineAbove' href="#">Deals</a>
+  </div>
+
+  <div id='main'>
     <header class='header-background page-header'>
       <div class='leftNav italic'>
       Welcome to Our New Site! Returning Customers: Please
@@ -18,7 +31,7 @@
       <img class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass">
     </span>
 
-      <span ng-click='searchBar()' ng-hide='!searchBarClick' ng-show='searchBarClick' class='origSearchWrapper'>Search <img class = 'searchMagGlass' src ='./pictures/other/business-search.png' alt="Magnifying glass">
+      <span ng-click='searchBar()' ng-hide='!searchBarClick' ng-show='searchBarClick' class='origSearchWrapper'>Search
       </span>
 
       <a href="https://www.familyvideo.com/storelocator/" title="Find a Store Near You">Find a Store</a>
@@ -29,10 +42,19 @@
     <img class='searchMagGlassMinView' src ='./pictures/other/business-search.png' alt="Magnifying glass">
   </span>
 
-  <div class='header-outer'>
-  </div>
+  <span class='header-outer'>
+    <span ng-click='openNav()'><span class='lineAboveMenu'></span><span class='miniMenu'>menu</span></span>
 
+    <img class='whiteLogo' src='./pictures/other/logo-white.png' alt='Family Video Logo'>
+    <img class='shoppingCart' src='./pictures/other/white-shopping-cart-md.png' alt='Shopping Cart'>
+  </span>
 </header>
+
+<div class='theViews'>
+<div ui-view></div>
+</div>
+
+</div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>

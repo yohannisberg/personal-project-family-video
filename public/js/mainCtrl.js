@@ -1,4 +1,4 @@
-angular.module('familyVideo').controller('mainCtrl', function($scope, $window){
+angular.module('familyVideo').controller('mainCtrl', function($scope){
 
 $scope.searchBarClick=true;
 
@@ -10,6 +10,18 @@ if($scope.searchBarClick){
 else{
   $scope.searchBarClick=true;
   }
+}
+
+$scope.openNav = function(){
+  // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
+  document.getElementById("mySidenav").style.width = "93%";
+  // document.getElementById("main").style.marginLeft = "calc(100%-54px)";
+  document.getElementById("main").style.marginLeft = "93%";
+}
+
+$scope.closeNav = function(){
+  document.getElementById("mySidenav").style.width = "0px";
+  document.getElementById("main").style.marginLeft = "0px";
 }
 
 })

@@ -13,10 +13,31 @@
     width: 50px; }
   .header-outer {
     position: absolute;
+    /*padding-left: 20px;
+    padding-right: 20px;*/
     top: 45px;
     width: 100%;
-    height: 90px;
-    background: black; } }
+    height: 30px;
+    background: black;
+    text-align: center; }
+  .whiteLogo {
+    width: 189px; }
+  .shoppingCart {
+    position: absolute;
+    width: 25px;
+    right: 16px; }
+  .miniMenu {
+    position: absolute;
+    cursor: pointer;
+    left: 15px;
+    font-size: 12px; }
+  .lineAboveMenu {
+    position: absolute;
+    border-radius: 50px;
+    left: 15px;
+    width: 30px;
+    height: 3px;
+    background-color: white; } }
 
 @media screen and (min-width: 1025px) {
   .leftNav {
@@ -59,11 +80,17 @@
   .searchMagGlassMinView {
     display: none; }
   .header-outer {
+    display: none; }
+  .whiteLogo {
+    display: none; }
+  .miniMenu {
+    display: none; }
+  .lineAboveMenu {
     display: none; } }
 
 .body {
   color: white;
-  /*background-color: black;*/
+  background-color: black;
   font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -73,15 +100,17 @@
 .page-header {
   display: flex;
   align-items: center;
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
   margin-left: auto;
   margin-right: auto;
   color: #d7d7d7;
   max-width: 1240px;
-  padding: 5px 20px 5px 20px;
+  /*padding: 5px 20px 5px 20px;*/
   width: auto; }
 
 .header-background {
+  position: absolute;
+  top: 2px;
   background-color: black;
   height: 35px;
   width: 100%; }
@@ -108,11 +137,67 @@
   cursor: pointer;
   margin-right: 20px; }
 
-.searchMagGlass {
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  /*padding-top: 10px; /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */ }
+
+.sidenav a {
+  padding: 10px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #818181;
+  display: block;
+  transition: 0.3s; }
+
+.sidenav a:hover, .offcanvas a:focus {
+  color: #f1f1f1; }
+
+.sidenav .closebtn {
   position: absolute;
-  top: -4px;
-  left: 32px;
-  width: 50px; }
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px; }
+
+.theX {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px; }
+
+#main {
+  /*transition: margin-left .5s;*/
+  /*padding: 20px;*/ }
+
+.welcomeMenu {
+  position: relative;
+  text-align: center;
+  display: block;
+  color: white;
+  padding: 20px 0 10px;
+  font-size: 16px; }
+
+.lineAbove {
+  border-top: 1px solid #d1d1d1; }
+
+.topBanner {
+  width: 880px; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

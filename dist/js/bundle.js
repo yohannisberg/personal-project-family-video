@@ -1,9 +1,17 @@
 'use strict';
 
-angular.module('familyVideo', []);
+angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider.state('home', {
+                url: '/',
+                templateUrl: "../views/home.html",
+                controller: "homeCtrl"
+        });
+
+        $urlRouterProvider.otherwise('/');
+});
 'use strict';
 
-angular.module('familyVideo').controller('mainCtrl', function ($scope, $window) {
+angular.module('familyVideo').controller('mainCtrl', function ($scope) {
 
   $scope.searchBarClick = true;
 
@@ -15,5 +23,23 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, $window) 
       $scope.searchBarClick = true;
     }
   };
+
+  $scope.openNav = function () {
+    // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
+    document.getElementById("mySidenav").style.width = "93%";
+    // document.getElementById("main").style.marginLeft = "calc(100%-54px)";
+    document.getElementById("main").style.marginLeft = "93%";
+  };
+
+  $scope.closeNav = function () {
+    document.getElementById("mySidenav").style.width = "0px";
+    document.getElementById("main").style.marginLeft = "0px";
+  };
+});
+'use strict';
+
+angular.module('familyVideo').controller('homeCtrl', function ($scope) {
+
+  $scope.testing = 'hi';
 });
 //# sourceMappingURL=bundle.js.map

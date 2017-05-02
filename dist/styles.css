@@ -37,7 +37,10 @@
     left: 15px;
     width: 30px;
     height: 3px;
-    background-color: white; } }
+    background-color: white; }
+  .view {
+    position: absolute;
+    top: 90px; } }
 
 @media screen and (min-width: 1025px) {
   .leftNav {
@@ -86,7 +89,10 @@
   .miniMenu {
     display: none; }
   .lineAboveMenu {
-    display: none; } }
+    display: none; }
+  .view {
+    position: absolute;
+    top: 45px; } }
 
 .body {
   color: white;

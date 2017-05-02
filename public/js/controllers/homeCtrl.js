@@ -1,5 +1,3 @@
-angular.module('familyVideo').controller('homeCtrl', function($scope){
-
-$scope.testing='hi'
+angular.module('familyVideo').controller('homeCtrl', function($scope, mainService){
 
 })

@@ -56,6 +56,11 @@
     background-color: white;
   }
 
+  .view {
+    position: absolute;
+    top: 90px;
+  }
+
 }
 
 @media screen and (min-width: 1025px) {
@@ -128,6 +133,11 @@
 
   .lineAboveMenu {
     display: none;
+  }
+
+  .view {
+    position: absolute;
+    top: 45px;
   }
 
 }

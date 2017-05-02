@@ -27,8 +27,8 @@
     <div class='rightLinks'>
 
       <span ng-hide='searchBarClick' ng-show='!searchBarClick'>
-      <input type='text' class='searchInput' placeholder='Search' maxlength='128'>
-      <img class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass">
+      <input ng-model='searchQuery' type='text' class='searchInput' placeholder='Search' maxlength='128'>
+      <a ui-sref="search"><img class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass"></a>
     </span>
 
       <span ng-click='searchBar()' ng-hide='!searchBarClick' ng-show='searchBarClick' class='origSearchWrapper'>Search
@@ -50,7 +50,7 @@
   </span>
 </header>
 
-<div class='theViews'>
+<div class='view'>
 <div ui-view></div>
 </div>
 

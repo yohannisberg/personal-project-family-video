@@ -1,0 +1,12 @@
+{{testing}}
+<h1>yo</h1>
+{{searchQuery}}
+
+<div ng-repeat="movie in forHtml">
+<ul>
+<img class='movieCover' ng-src='https://image.tmdb.org/t/p/w500{{movie.poster_path}}' alt='Movie Poster'>
+
+<li>{{movie.original_title}}</li>
+</ul>
+
+</div>

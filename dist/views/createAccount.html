@@ -1,0 +1,24 @@
+<h1>Create New Customer Account</h1>
+
+<h2>Personal Information</h2>
+<form ng-submit='createUser(user)'>
+  <h2>First Name</h2>
+  <input ng-model='user.first_name' type='text' class='' maxlength='128'>
+
+  <h2>Last Name</h2>
+  <input ng-model='user.last_name' type='text' class='' maxlength='128' required>
+
+  <h2>Sign-in Information</h2>
+
+  <h2>Email</h2>
+  <input ng-model='user.email' type='text' class='' maxlength='128'>
+
+  <h2>Password</h2>
+  <input ng-model='user.password' type='password' class='' maxlength='128'>
+
+  <h2>Confirm Password</h2>
+  <input ng-model='confirmPassword' type='password' class='' maxlength='128'>
+  <button type="submit" name="button">Submit</button>
+</form>
+
+{{user.first_name}}

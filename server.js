@@ -2,15 +2,24 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var massive = require('massive');
+var path = require('path');
+var app = express();
 
 var conn = massive.connectSync({
   connectionString : "postgres://postgres:jesus555@localhost:5433/personalProjectFamilyVideo"
 });
 
+app.set('db', conn);
+const db=app.get('db');
+db.schema(function(err, response){
+  if(response){
+    console.log('table init')
+  }
+})
 //we can export this by doing var app=module.exports=express()
-var app = express();
 app.use(bodyParser.json());
-
+//so we don't need live-server
+app.use(express.static(path.join(__dirname, 'dist/')));
 //from joe- in controller, we require app, then we require db so we can use it
 //REQUIRE CONTROLLERS AFTER YOU SET DB!!!
 
@@ -30,11 +39,24 @@ var port = 3000;
 //   });
 // });
 
-app.post("/account/create", function(req,resp) {
+app.get('/api/test', function(req, res){
+  console.log('hi')
+  res.status(200).send('hello')
+})
+
+app.post("/api/account/create", function(req,resp) {
   //this is not the db folder- massive finds db by default
-  db.getAllInjuries(function(err, injuries) {
+
+  console.log(req.body.user);
+
+  const user=req.body.user
+
+  db.createAccount([user.first_name, user.last_name, user.email, user.password], function(err, account) {
     if(!err){
-    resp.send(injuries);
+    resp.send(account);
+  }
+  else{
+    console.log(err)
   }
   });
 });

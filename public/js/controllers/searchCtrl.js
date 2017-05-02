@@ -2,15 +2,9 @@ angular.module('familyVideo').controller('searchCtrl', function($scope, mainServ
 
   $scope.testing='hi';
 
-  mainService.testing=$scope.searchQuery;
+  // mainService.testing=$scope.searchQuery;
 
-  $scope.controlData=function(){
-    mainService.getMovies().then(function(response){
-      $scope.forHtml=response;
-    })
-  }
-
-  $scope.controlData();
+  // $scope.controlData();
 
 
 

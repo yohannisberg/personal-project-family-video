@@ -26,12 +26,12 @@
     </div>
     <div class='rightLinks'>
 
-      <span ng-hide='searchBarClick' ng-show='!searchBarClick'>
+      <span ng-hide='searchBarClick'>
       <input ng-model='searchQuery' type='text' class='searchInput' placeholder='Search' maxlength='128'>
-      <a ui-sref="search"><img class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass"></a>
+      <a ui-sref="search"><img ng-click='controlData(searchQuery)' class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass"></a>
     </span>
 
-      <span ng-click='searchBar()' ng-hide='!searchBarClick' ng-show='searchBarClick' class='origSearchWrapper'>Search
+      <span ng-click='searchBarClick=!searchBarClick' ng-show='searchBarClick' class='origSearchWrapper'>Search
       </span>
 
       <a href="https://www.familyvideo.com/storelocator/" title="Find a Store Near You">Find a Store</a>
@@ -58,7 +58,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
-  <script src="./js/bundle.js"></script>
-
+  <script src='./js/bundle.js'></script>
   </body>
 </html>

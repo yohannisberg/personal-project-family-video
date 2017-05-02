@@ -1,16 +1,16 @@
-angular.module('familyVideo').controller('mainCtrl', function($scope){
+angular.module('familyVideo').controller('mainCtrl', function($scope, mainService){
 
 $scope.searchBarClick=true;
 
-$scope.searchBar = function() {
-if($scope.searchBarClick){
-  // $window.onclick = null;
-  $scope.searchBarClick=false;
-}
-else{
-  $scope.searchBarClick=true;
-  }
-}
+// $scope.searchBar = function() {
+// if($scope.searchBarClick){
+//   // $window.onclick = null;
+//   $scope.searchBarClick=false;
+// }
+// else{
+//   $scope.searchBarClick=true;
+//   }
+// }
 
 $scope.openNav = function(){
   // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
@@ -22,6 +22,12 @@ $scope.openNav = function(){
 $scope.closeNav = function(){
   document.getElementById("mySidenav").style.width = "0px";
   document.getElementById("main").style.marginLeft = "0px";
+}
+
+$scope.controlData=function(query){
+  mainService.getMovies(query).then(function(response){
+    $scope.forHtml=response;
+  })
 }
 
 })

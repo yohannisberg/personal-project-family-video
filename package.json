@@ -13,6 +13,7 @@
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "cors": "^2.8.3",
+    "e": "0.0.4",
     "express": "^4.15.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -21,6 +22,7 @@
     "gulp-print": "^2.0.1",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
-    "massive": "^2.6.0"
+    "massive": "^2.6.0",
+    "path": "^0.12.7"
   }
 }

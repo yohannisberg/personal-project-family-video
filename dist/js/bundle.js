@@ -3,30 +3,39 @@
 angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: '/',
-    templateUrl: "../views/home.html",
+    templateUrl: "./views/home.html",
     controller: "homeCtrl"
   }).state('search', {
     url: '/search',
-    templateUrl: '../views/search.html',
+    templateUrl: './views/search.html',
     controller: "searchCtrl"
+  }).state('account', {
+    url: '/account',
+    templateUrl: './views/signIn.html',
+    controller: "signInCtrl"
+  }).state('createAccount', {
+    url: '/account/create',
+    templateUrl: './views/createAccount.html',
+    controller: "createAccountCtrl"
   });
 
   $urlRouterProvider.otherwise('/');
 });
 'use strict';
 
-angular.module('familyVideo').controller('mainCtrl', function ($scope) {
+angular.module('familyVideo').controller('mainCtrl', function ($scope, mainService) {
 
   $scope.searchBarClick = true;
 
-  $scope.searchBar = function () {
-    if ($scope.searchBarClick) {
-      // $window.onclick = null;
-      $scope.searchBarClick = false;
-    } else {
-      $scope.searchBarClick = true;
-    }
-  };
+  // $scope.searchBar = function() {
+  // if($scope.searchBarClick){
+  //   // $window.onclick = null;
+  //   $scope.searchBarClick=false;
+  // }
+  // else{
+  //   $scope.searchBarClick=true;
+  //   }
+  // }
 
   $scope.openNav = function () {
     // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
@@ -39,40 +48,110 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope) {
     document.getElementById("mySidenav").style.width = "0px";
     document.getElementById("main").style.marginLeft = "0px";
   };
+
+  $scope.controlData = function (query) {
+    mainService.getMovies(query).then(function (response) {
+      $scope.forHtml = response;
+    });
+  };
 });
 'use strict';
 
 angular.module('familyVideo').service('mainService', function ($http) {
 
-  this.getMovies = function () {
-    return $http.get("https://api.themoviedb.org/3/search/movie?api_key=29cb68023cc937676c90dced0f11f657&query=" + this.testing).then(function (response) {
+  this.getMovies = function (query) {
+    return $http.get("https://api.themoviedb.org/3/search/movie?api_key=29cb68023cc937676c90dced0f11f657&query=" + query).then(function (response) {
       return response.data.results;
     });
   };
 
-  // this.getMovies=function(){
-  //   return $http.get("https://api.themoviedb.org/3/search/movie?api_key=29cb68023cc937676c90dced0f11f657&query="+$scope.searchQuery).then(function(response){
-  //     return response.data.results;
-  //   })
-  // }
+  this.createAccount = function (user) {
+    console.log(user);
+    return $http({
+      method: 'POST',
+      url: '/api/account/create',
+      data: {
+        user: user
+      }
+    }).then(function (response) {});
+  };
+
+  // DELETE THIS LATER
+  // app.post('/incidents', function(req, res) {
+  //   var data = [req.body.us_state, req.body.injury_id, req.body.cause_id];
+  //   db.newIncident(data, function(err, sqlResponse) {
+  //     res.send(sqlResponse)
+  //   });
+  // });
+});
+'use strict';
+
+angular.module('familyVideo').controller('createAccountCtrl', function ($scope, mainService) {
+
+  $scope.createUser = function (user) {
+    if (user.password === $scope.confirmPassword) {
+      console.log('passwords match');
+      mainService.createAccount(user);
+      // user = '';
+    } else {
+      alert('nope');
+      // use sweet alerts
+      // http://t4t5.github.io/sweetalert/
+      // or use a directive
+      //  http://stackoverflow.com/questions/12581439/how-to-add-custom-validation-to-an-angularjs-form
+    }
+  };
 });
 'use strict';
 
 angular.module('familyVideo').controller('homeCtrl', function ($scope, mainService) {});
+//   $scope.myInterval = 3000;
+//   $scope.slides = [
+//     {
+//       image: 'http://lorempixel.com/400/200/'
+//     },
+//     {
+//       image: 'http://lorempixel.com/400/200/food'
+//     },
+//     {
+//       image: 'http://lorempixel.com/400/200/sports'
+//     },
+//     {
+//       image: 'http://lorempixel.com/400/200/people'
+//     }
+//   ];
+// })
+
+// angular.module('familyVideo', ['ui.bootstrap']);
+// function CarouselDemoCtrl($scope){
+//   $scope.myInterval = 3000;
+//   $scope.slides = [
+//     {
+//       image: 'http://lorempixel.com/400/200/'
+//     },
+//     {
+//       image: 'http://lorempixel.com/400/200/food'
+//     },
+//     {
+//       image: 'http://lorempixel.com/400/200/sports'
+//     },
+//     {
+//       image: 'http://lorempixel.com/400/200/people'
+//     }
+//   ];
+// }
 'use strict';
 
 angular.module('familyVideo').controller('searchCtrl', function ($scope, mainService) {
 
   $scope.testing = 'hi';
 
-  mainService.testing = $scope.searchQuery;
+  // mainService.testing=$scope.searchQuery;
 
-  $scope.controlData = function () {
-    mainService.getMovies().then(function (response) {
-      $scope.forHtml = response;
-    });
-  };
+  // $scope.controlData();
 
-  $scope.controlData();
 });
+'use strict';
+
+angular.module('familyVideo').controller('signInCtrl', function ($scope, mainService) {});
 //# sourceMappingURL=bundle.js.map

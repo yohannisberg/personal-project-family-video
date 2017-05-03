@@ -7,7 +7,7 @@ angular.module('familyVideo', ['ui.router'])
             controller: "homeCtrl"
         })
     .state('search', {
-          url: '/search',
+          url: '/search/',
           templateUrl: './views/search.html',
           controller: "searchCtrl"
         })

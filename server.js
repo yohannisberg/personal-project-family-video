@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var massive = require('massive');
 var path = require('path');
+var session = require('express-session');
+var config = require('./config')
 var app = express();
 
 var conn = massive.connectSync({
@@ -13,7 +15,9 @@ app.set('db', conn);
 const db=app.get('db');
 db.schema(function(err, response){
   if(response){
-    console.log('table init')
+    console.log('table init from server')
+  } else {
+    console.log(err);
   }
 })
 //we can export this by doing var app=module.exports=express()
@@ -22,6 +26,17 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist/')));
 //from joe- in controller, we require app, then we require db so we can use it
 //REQUIRE CONTROLLERS AFTER YOU SET DB!!!
+
+app.use(session({
+  secret: config.password,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false
+  // maxAge: (365 * 24 * 60 * 60 * 1000),
+  // expires: false
+}
+
+}))
 
 //The dbs belows (except for the variable) can have any name
 //set gives and key value pair to object- db is the key, conn is the value
@@ -46,8 +61,21 @@ app.get('/api/test', function(req, res){
 
 app.post("/api/account/create", function(req,resp) {
   //this is not the db folder- massive finds db by default
+  // req.session.id = function(){
+  //   let arr = '1234567890qwertyuiopasdfghjklzxcvbnm'
+  //   let id=[];
+  //   for(var i=0; i<9; i++){
+  //     id.push(arr[Math.floor(Math.random()*35)])
+  //   }
+  //   console.log(id);
+  //   return id.join('');
+  // };
   const user=req.body.user;
-  db.createAccount([user.first_name, user.last_name, user.email, user.password], function(err, account) {
+  console.log(req.session.id)
+  db.createAccount([user.first_name, user.last_name, user.email, user.password, req.session.id], function(err, account) {
+    console.log('account', account)
+    req.session.user=account[0];
+    console.log(req.session)
     if(!err){
     resp.send(account);
   }
@@ -61,12 +89,18 @@ app.post("/api/addMovie", function(req, resp) {
   const movie=req.body.movie;
   db.shoppingCart([movie.original_title, movie.api_id, movie.poster_path], function(err, movie) {
     if(!err){
+      console.log(movie)
       resp.send(movie)
     }
     else{
       console.log(err)
     }
   })
+});
+
+app.get('/api/sessionCheck', function(req, resp) {
+  console.log(req.sessionID, req.session.id)
+  resp.status(200).send(req.sessionID)
 })
 
 app.listen(port, function(){

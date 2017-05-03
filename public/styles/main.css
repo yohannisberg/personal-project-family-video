@@ -275,7 +275,7 @@ font-size: 16px;
   z-index: 2;
 }
 
-.headerTrans {
+/*.headerTrans {
 position: absolute;
 z-index: 3;
 width: 100%;
@@ -283,4 +283,4 @@ height: 90px;
 margin-top: 5px;
 background: rgba(0,0,0,0.75);
 border-top: 1px solid #363636;
-}
+}*/

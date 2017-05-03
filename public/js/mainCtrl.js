@@ -2,16 +2,6 @@ angular.module('familyVideo').controller('mainCtrl', function($scope, mainServic
 
 $scope.searchBarClick=true;
 
-// $scope.searchBar = function() {
-// if($scope.searchBarClick){
-//   // $window.onclick = null;
-//   $scope.searchBarClick=false;
-// }
-// else{
-//   $scope.searchBarClick=true;
-//   }
-// }
-
 $scope.openNav = function(){
   // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
   document.getElementById("mySidenav").style.width = "93%";
@@ -29,5 +19,14 @@ $scope.controlData=function(query){
     $scope.forHtml=response;
   })
 }
+
+$scope.sessionCheck=function(){
+  mainService.checkSessions().then(function(response){
+    console.log('this is the controller', response)
+
+  })
+ }
+
+$scope.sessionCheck();
 
 })

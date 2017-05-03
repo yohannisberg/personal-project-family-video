@@ -52,8 +52,8 @@
 
 <div class='belowHeader'>
 
-<a ui-sref="account"><div class='tempSignedIn'>Sign In</div></a>
-<div class='tempSignedIn'>Signed in: </div>
+<a ng-show='notSignedIn' ui-sref="account"><div class='tempSignedIn'>Sign In</div></a>
+<div ng-show='signedIn' class='tempSignedIn'>Signed in: </div>
 
 <div class='headerTrans'></div>
 </div>

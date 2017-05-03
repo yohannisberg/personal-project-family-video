@@ -6,7 +6,7 @@ angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $u
     templateUrl: "./views/home.html",
     controller: "homeCtrl"
   }).state('search', {
-    url: '/search',
+    url: '/search/',
     templateUrl: './views/search.html',
     controller: "searchCtrl"
   }).state('account', {
@@ -27,16 +27,6 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
 
   $scope.searchBarClick = true;
 
-  // $scope.searchBar = function() {
-  // if($scope.searchBarClick){
-  //   // $window.onclick = null;
-  //   $scope.searchBarClick=false;
-  // }
-  // else{
-  //   $scope.searchBarClick=true;
-  //   }
-  // }
-
   $scope.openNav = function () {
     // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
     document.getElementById("mySidenav").style.width = "93%";
@@ -54,10 +44,27 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
       $scope.forHtml = response;
     });
   };
+
+  $scope.sessionCheck = function () {
+    mainService.checkSessions().then(function (response) {
+      console.log('this is the controller', response);
+    });
+  };
+
+  $scope.sessionCheck();
 });
 'use strict';
 
 angular.module('familyVideo').service('mainService', function ($http) {
+  //This 'this' is the mainService- used within a function
+  var self = this;
+
+  this.checkSessions = function () {
+    return $http.get('/api/sessionCheck').then(function (response) {
+      // console.log('this is the sessionsCheck in the service', response)
+      return response;
+    });
+  };
 
   this.getMovies = function (query) {
     return $http.get("https://api.themoviedb.org/3/search/movie?api_key=29cb68023cc937676c90dced0f11f657&query=" + query).then(function (response) {
@@ -66,14 +73,16 @@ angular.module('familyVideo').service('mainService', function ($http) {
   };
 
   this.createAccount = function (user) {
-    console.log(user);
+    console.log('this is the service', user);
     return $http({
       method: 'POST',
       url: '/api/account/create',
       data: {
         user: user
       }
-    }).then(function (response) {});
+    }).then(function (response) {
+      self.checkSessions();
+    });
   };
 
   this.addMovieToCart = function (movie) {

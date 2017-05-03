@@ -76,13 +76,15 @@ angular.module('familyVideo').service('mainService', function ($http) {
     }).then(function (response) {});
   };
 
-  // DELETE THIS LATER
-  // app.post('/incidents', function(req, res) {
-  //   var data = [req.body.us_state, req.body.injury_id, req.body.cause_id];
-  //   db.newIncident(data, function(err, sqlResponse) {
-  //     res.send(sqlResponse)
-  //   });
-  // });
+  this.addMovieToCart = function (movie) {
+    return $http({
+      method: 'POST',
+      url: '/api/addMovie',
+      data: {
+        movie: movie
+      }
+    }).then(function (response) {});
+  };
 });
 'use strict';
 
@@ -144,7 +146,9 @@ angular.module('familyVideo').controller('homeCtrl', function ($scope, mainServi
 
 angular.module('familyVideo').controller('searchCtrl', function ($scope, mainService) {
 
-  $scope.testing = 'hi';
+  $scope.addToCart = function (movieObject) {
+    mainService.addMovieToCart(movieObject);
+  };
 
   // mainService.testing=$scope.searchQuery;
 

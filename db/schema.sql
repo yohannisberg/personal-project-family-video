@@ -8,8 +8,11 @@ CREATE TABLE IF NOT EXISTS accounts
   password VARCHAR(50)
 );
 
--- CREATE TABLE shoppingCart
--- (
---   id SERIAL PRIMARY KEY,
---
--- );
+CREATE TABLE IF NOT EXISTS shoppingCart
+(
+  id SERIAL PRIMARY KEY,
+  movie_title VARCHAR(50),
+  api_id VARCHAR(10),
+  picture VARCHAR(100),
+  FOREIGN KEY account_id REFERENCES accounts(id)
+);

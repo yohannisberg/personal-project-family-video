@@ -1,6 +1,8 @@
 angular.module('familyVideo').controller('searchCtrl', function($scope, mainService){
 
-  $scope.testing='hi';
+  $scope.addToCart=function(movieObject){
+    mainService.addMovieToCart(movieObject)
+  };
 
   // mainService.testing=$scope.searchQuery;
 

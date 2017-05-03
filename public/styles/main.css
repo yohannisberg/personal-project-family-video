@@ -262,19 +262,7 @@ font-size: 16px;
   width: 880px;
 }
 
-/*Carousel CSS*/
-#slides_control > div{
-  height: 200px;
+.tempSignedIn{
+  position: relative;
+  top: 40px;
 }
-img{
-  margin:auto;
-  width: 400px;
-}
-#slides_control {
-  position:absolute;
-  width: 400px;
-  left:50%;
-  top:20px;
- margin-left:-200px;
-}
-/*End of Carousel CSS*/

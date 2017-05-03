@@ -46,11 +46,7 @@ app.get('/api/test', function(req, res){
 
 app.post("/api/account/create", function(req,resp) {
   //this is not the db folder- massive finds db by default
-
-  console.log(req.body.user);
-
-  const user=req.body.user
-
+  const user=req.body.user;
   db.createAccount([user.first_name, user.last_name, user.email, user.password], function(err, account) {
     if(!err){
     resp.send(account);
@@ -58,8 +54,20 @@ app.post("/api/account/create", function(req,resp) {
   else{
     console.log(err)
   }
-  });
+  })
 });
+
+app.post("/api/addMovie", function(req, resp) {
+  const movie=req.body.movie;
+  db.shoppingCart([movie.original_title, movie.api_id, movie.poster_path], function(err, movie) {
+    if(!err){
+      resp.send(movie)
+    }
+    else{
+      console.log(err)
+    }
+  })
+})
 
 app.listen(port, function(){
   console.log("working")

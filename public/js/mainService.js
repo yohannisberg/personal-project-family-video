@@ -67,4 +67,16 @@ angular.module('familyVideo').service('mainService', function($http){
     })
   }
 
+  this.findAccount=function(sessionId){
+    return $http({
+      method: 'POST',
+      url: 'api/findAccount',
+      data: {
+        id:id
+      }
+    }).then(function(response){
+
+    })
+  }
+
 });

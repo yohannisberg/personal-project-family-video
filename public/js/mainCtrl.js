@@ -22,11 +22,19 @@ $scope.controlData=function(query){
 
 $scope.sessionCheck=function(){
   mainService.checkSessions().then(function(response){
-    console.log('this is the controller', response)
-
+    console.log('This is the SessionId ', response.data)
+    $scope.sessId=response.data;
   })
  }
 
 $scope.sessionCheck();
+
+$scope.notSignedIn=true;
+
+$scope.findAccount=function(){
+
+}
+
+$scope.findAccount();
 
 })

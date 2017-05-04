@@ -272,7 +272,19 @@ font-size: 16px;
 .tempSignedIn{
   position: relative;
   top: 40px;
+  right: -500px;
   z-index: 2;
+}
+
+.cartIcon {
+  position: relative;
+  top: 40px;
+  right: -700px;
+  z-index: 2;
+}
+
+.cart {
+  
 }
 
 /*.headerTrans {

@@ -74,7 +74,7 @@ app.post("/api/account/create", function(req,resp) {
   console.log(req.session.id)
   db.createAccount([user.first_name, user.last_name, user.email, user.password, req.session.id], function(err, account) {
     console.log('account', account)
-    req.session.user=account[0];
+    // req.session.user=account[0];
     console.log(req.session)
     if(!err){
     resp.send(account);
@@ -87,7 +87,7 @@ app.post("/api/account/create", function(req,resp) {
 
 app.post("/api/addMovie", function(req, resp) {
   const movie=req.body.movie;
-  db.shoppingCart([movie.original_title, movie.id, movie.poster_path], function(err, movie) {
+  db.shoppingCart([movie.original_title, movie.id, movie.poster_path, req.session.user[0].id], function(err, movie) {
     if(!err){
       console.log('worked :)')
       resp.send(movie)
@@ -115,6 +115,14 @@ app.get('/api/sessionCheck', function(req, resp) {
 app.post('/api/signIn', function(req, resp) {
   const account=req.body.account;
   db.signIn([account.email, account.password], function(err, account) {
+    req.session.user=account;
+    resp.status(200).send(account)
+  })
+})
+
+app.post('api/findAccount', function(req, resp) {
+  ('holy crap its working', req.body.id)
+  db.findAccount([req.body.id], function(err, account) {
     resp.status(200).send(account)
   })
 })

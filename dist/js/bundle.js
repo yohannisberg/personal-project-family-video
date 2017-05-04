@@ -47,11 +47,18 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
 
   $scope.sessionCheck = function () {
     mainService.checkSessions().then(function (response) {
-      console.log('this is the controller', response);
+      console.log('This is the SessionId ', response.data);
+      $scope.sessId = response.data;
     });
   };
 
   $scope.sessionCheck();
+
+  $scope.notSignedIn = true;
+
+  $scope.findAccount = function () {};
+
+  $scope.findAccount();
 });
 'use strict';
 
@@ -118,6 +125,16 @@ angular.module('familyVideo').service('mainService', function ($http) {
       url: '/api/addMovie',
       data: {
         movie: movie
+      }
+    }).then(function (response) {});
+  };
+
+  this.findAccount = function (sessionId) {
+    return $http({
+      method: 'POST',
+      url: 'api/findAccount',
+      data: {
+        id: id
       }
     }).then(function (response) {});
   };
@@ -197,6 +214,7 @@ angular.module('familyVideo').controller('signInCtrl', function ($scope, mainSer
 
   $scope.logIn = function (account) {
     mainService.logInUser(account).then(function (response) {
+      console.log('from login', response);
       var firstName = response.data[0].first_name;
       alert('Hello ' + firstName);
     });

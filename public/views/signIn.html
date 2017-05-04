@@ -1,11 +1,16 @@
 <h1>Registered Customers</h1>
 <h2>If you have an account, sign in with your email address.</h2>
 
+<form ng-submit='logIn(account)'>
 <h1>Email</h1>
-<input ng-model='existingEmail' type='text' class='' placeholder='Email' maxlength='128'>
+<input ng-model='account.email' type='text' class='' placeholder='Email' maxlength='128'>
 
 <h1>Password</h1>
-<input ng-model='existingPassword' type='text' class='' placeholder='Password' maxlength='128'>
+<input ng-model='account.password' type='text' class='' placeholder='Password' maxlength='128'>
+
+<button type="submit" name="button">Sign In</button>
+
+</form>
 
 <h1>New Customers</h1>
 <h2>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.</h2>

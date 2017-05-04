@@ -87,9 +87,9 @@ app.post("/api/account/create", function(req,resp) {
 
 app.post("/api/addMovie", function(req, resp) {
   const movie=req.body.movie;
-  db.shoppingCart([movie.original_title, movie.api_id, movie.poster_path], function(err, movie) {
+  db.shoppingCart([movie.original_title, movie.id, movie.poster_path], function(err, movie) {
     if(!err){
-      console.log(movie)
+      console.log('worked :)')
       resp.send(movie)
     }
     else{
@@ -99,8 +99,24 @@ app.post("/api/addMovie", function(req, resp) {
 });
 
 app.get('/api/sessionCheck', function(req, resp) {
-  console.log(req.sessionID, req.session.id)
   resp.status(200).send(req.sessionID)
+})
+
+// app.post('/api/signIn', function(req, resp) {
+//   // console.log('this is from the server', req.body.account)
+//   const account=req.body.account;
+//   db.signIn([account.email, account.password], function(err, account) {
+//     if(!err){
+//       resp.status(200).send(account.data.object);
+//     }
+//   })
+// })
+
+app.post('/api/signIn', function(req, resp) {
+  const account=req.body.account;
+  db.signIn([account.email, account.password], function(err, account) {
+    resp.status(200).send(account)
+  })
 })
 
 app.listen(port, function(){

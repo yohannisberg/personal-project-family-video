@@ -4,7 +4,6 @@ angular.module('familyVideo').controller('createAccountCtrl', function($scope, m
     if (user.password === $scope.confirmPassword) {
       console.log('passwords match');
       mainService.createAccount(user)
-      user.first_name = '';
     } else {
       alert('nope')
       // use sweet alerts
@@ -12,5 +11,7 @@ angular.module('familyVideo').controller('createAccountCtrl', function($scope, m
       // or use a directive
       //  http://stackoverflow.com/questions/12581439/how-to-add-custom-validation-to-an-angularjs-form
     }
+    // user.first_name = '';
+
   }
 })

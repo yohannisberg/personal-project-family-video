@@ -85,6 +85,33 @@ angular.module('familyVideo').service('mainService', function ($http) {
     });
   };
 
+  // this.logInUser=function(account){
+  //   // console.log('this is the service', user)
+  //   return $http({
+  //     method: 'POST',
+  //     url: '/api/signIn',
+  //     data: {
+  //       account: account
+  //     }
+  //   }).then(function(response){
+  //     return response;
+  //   })
+  // }
+
+  this.logInUser = function (account) {
+    // console.log('thisbetter work',account.email, account.password)
+    return $http({
+      method: 'POST',
+      url: '/api/signIn',
+      data: {
+        account: account
+      }
+    }).then(function (response) {
+      console.log('IF THIS WORKS YOURE GOOD TO GO', response);
+      return response;
+    });
+  };
+
   this.addMovieToCart = function (movie) {
     return $http({
       method: 'POST',
@@ -103,7 +130,6 @@ angular.module('familyVideo').controller('createAccountCtrl', function ($scope, 
     if (user.password === $scope.confirmPassword) {
       console.log('passwords match');
       mainService.createAccount(user);
-      user.first_name = '';
     } else {
       alert('nope');
       // use sweet alerts
@@ -111,6 +137,7 @@ angular.module('familyVideo').controller('createAccountCtrl', function ($scope, 
       // or use a directive
       //  http://stackoverflow.com/questions/12581439/how-to-add-custom-validation-to-an-angularjs-form
     }
+    // user.first_name = '';
   };
 });
 'use strict';
@@ -166,5 +193,13 @@ angular.module('familyVideo').controller('searchCtrl', function ($scope, mainSer
 });
 'use strict';
 
-angular.module('familyVideo').controller('signInCtrl', function ($scope, mainService) {});
+angular.module('familyVideo').controller('signInCtrl', function ($scope, mainService) {
+
+  $scope.logIn = function (account) {
+    mainService.logInUser(account).then(function (response) {
+      var firstName = response.data[0].first_name;
+      alert('Hello ' + firstName);
+    });
+  };
+});
 //# sourceMappingURL=bundle.js.map

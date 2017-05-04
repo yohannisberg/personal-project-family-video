@@ -28,6 +28,33 @@ angular.module('familyVideo').service('mainService', function($http){
     })
   }
 
+  // this.logInUser=function(account){
+  //   // console.log('this is the service', user)
+  //   return $http({
+  //     method: 'POST',
+  //     url: '/api/signIn',
+  //     data: {
+  //       account: account
+  //     }
+  //   }).then(function(response){
+  //     return response;
+  //   })
+  // }
+
+  this.logInUser=function(account){
+    // console.log('thisbetter work',account.email, account.password)
+    return $http({
+      method: 'POST',
+      url: '/api/signIn',
+      data: {
+        account: account
+      }
+    }).then(function(response){
+      console.log('IF THIS WORKS YOURE GOOD TO GO', response)
+      return response;
+    })
+  }
+
   this.addMovieToCart=function(movie){
     return $http({
       method: 'POST',
@@ -36,6 +63,7 @@ angular.module('familyVideo').service('mainService', function($http){
         movie: movie
       }
     }).then(function(response){
+
     })
   }
 

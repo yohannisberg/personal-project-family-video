@@ -23,9 +23,10 @@ angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $u
 });
 'use strict';
 
-angular.module('familyVideo').controller('mainCtrl', function ($scope, mainService) {
+angular.module('familyVideo').controller('mainCtrl', function ($scope, mainService, $rootScope) {
 
   $scope.searchBarClick = true;
+  $scope.shoppingCart = true;
 
   $scope.openNav = function () {
     // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
@@ -47,8 +48,8 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
 
   $scope.sessionCheck = function () {
     mainService.checkSessions().then(function (response) {
-      console.log('This is the SessionId ', response.data);
-      $scope.sessId = response.data;
+      var sessId = response.data;
+      console.log(sessId);
     });
   };
 
@@ -56,19 +57,44 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
 
   $scope.notSignedIn = true;
 
-  $scope.findAccount = function () {};
+  // $scope.findAccount=function(){
+  //   console.log('hi', $scope.sessId);
+  //   mainService.findAccount($scope.sessId).then(function(response){
+  //     console.log('JOFJOF', response)
+  //   })
+  // }
+  //
+  // $scope.findAccount();
+
+  $rootScope.$on('user', function (response) {
+    console.log(response);
+    $scope.user = response;
+  });
+
+  $scope.findAccount = function () {
+    mainService.findAccount().then(function (response) {
+      console.log('!!!This from the controller', response);
+      $scope.user = response.data;
+    });
+  };
 
   $scope.findAccount();
+
+  $scope.showCart = function () {
+    mainService.showCart().then(function (response) {
+      $scope.cartItems = response;
+    });
+  };
 });
 'use strict';
 
-angular.module('familyVideo').service('mainService', function ($http) {
+angular.module('familyVideo').service('mainService', function ($http, $rootScope) {
   //This 'this' is the mainService- used within a function
   var self = this;
 
   this.checkSessions = function () {
     return $http.get('/api/sessionCheck').then(function (response) {
-      // console.log('this is the sessionsCheck in the service', response)
+      console.log('this is the sessionsCheck in the service', response);
       return response;
     });
   };
@@ -110,11 +136,10 @@ angular.module('familyVideo').service('mainService', function ($http) {
     return $http({
       method: 'POST',
       url: '/api/signIn',
-      data: {
-        account: account
-      }
+      data: account
     }).then(function (response) {
       console.log('IF THIS WORKS YOURE GOOD TO GO', response);
+      $rootScope.$emit('user', response.data);
       return response;
     });
   };
@@ -129,14 +154,30 @@ angular.module('familyVideo').service('mainService', function ($http) {
     }).then(function (response) {});
   };
 
-  this.findAccount = function (sessionId) {
-    return $http({
-      method: 'POST',
-      url: 'api/findAccount',
-      data: {
-        id: id
-      }
-    }).then(function (response) {});
+  // this.findAccount=function(sessionId){
+  //   return $http({
+  //     method: 'POST',
+  //     url: '/api/findAccount',
+  //     data: {
+  //       id:sessionId
+  //     }
+  //   }).then(function(response){
+  //
+  //   })
+  // }
+
+  this.findAccount = function () {
+    return $http.get('/api/findAccount').then(function (response) {
+      console.log('!!!This be from the service', response);
+      $rootScope.$emit('user', response.data);
+      return response;
+    });
+  };
+
+  this.showCart = function () {
+    return $http.get('/api/getCart').then(function (response) {
+      return response;
+    });
   };
 });
 'use strict';
@@ -210,13 +251,14 @@ angular.module('familyVideo').controller('searchCtrl', function ($scope, mainSer
 });
 'use strict';
 
-angular.module('familyVideo').controller('signInCtrl', function ($scope, mainService) {
+angular.module('familyVideo').controller('signInCtrl', function ($scope, mainService, $state) {
 
   $scope.logIn = function (account) {
     mainService.logInUser(account).then(function (response) {
       console.log('from login', response);
-      var firstName = response.data[0].first_name;
-      alert('Hello ' + firstName);
+      // $scope.firstName = response.data[0].first_name;
+
+      // alert('Hello '+firstName)
     });
   };
 });

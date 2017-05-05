@@ -284,7 +284,20 @@ font-size: 16px;
 }
 
 .cart {
-  
+  background-color: white;
+  height: 200px;
+  width:100px;
+}
+
+.cartItem {
+  color: black;
+}
+
+.cartFunction{
+  position: relative;
+  top: 40px;
+  right: -900px;
+  z-index: 2;
 }
 
 /*.headerTrans {

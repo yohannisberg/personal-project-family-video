@@ -1,1 +1,1 @@
-SELECT * FROM accounts WHERE sessionid=$1
+SELECT * FROM accounts WHERE email=$1

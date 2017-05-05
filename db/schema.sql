@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS accounts
   last_name VARCHAR(50),
   newsletter BOOLEAN,
   email VARCHAR(50),
-  password VARCHAR(50),
+  password TEXT,
   sessionId VARCHAR(100)
 );
 

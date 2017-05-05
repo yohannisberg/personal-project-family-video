@@ -53,13 +53,21 @@
 <div class='belowHeader'>
 
 <a class='tempSignedIn' ng-show='notSignedIn' ui-sref="account">Sign In</a>
-<div class='tempSignedIn' ng-show='signedIn'>Signed in: </div>
+<div class='tempSignedIn' ng-hide='signedIn'>Signed in: {{user.first_name}}</div>
 
-<div class='cartIcon' ng-click='!shoppingCart=shoppingCart'>Cart</div>
-<!-- ng-show='shoppingCart' -->
-<div class=''></div>
+<div class='cartFunction' ng-click='showCart()'>click dis
+<div>{{cartItems}}</div>
 
-<div class='headerTrans'></div>
+</div>
+
+<div class='cartIcon' ng-click='shoppingCart=!shoppingCart'>Cart<div ng-hide='shoppingCart'class='cart'>
+<ul>
+<li class='cartItem'>testing</li>
+</ul>
+</div>
+</div>
+
+<div class='headerTrans' ></div>
 </div>
 
 <div class='view'>

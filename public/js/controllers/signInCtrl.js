@@ -1,10 +1,11 @@
-angular.module('familyVideo').controller('signInCtrl', function($scope, mainService){
+angular.module('familyVideo').controller('signInCtrl', function($scope, mainService, $state){
 
   $scope.logIn=function(account){
     mainService.logInUser(account).then(function(response) {
       console.log('from login', response)
-      var firstName = response.data[0].first_name;
-      alert('Hello '+firstName)
+      // $scope.firstName = response.data[0].first_name;
+
+      // alert('Hello '+firstName)
     })
   }
 

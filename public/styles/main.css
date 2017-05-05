@@ -38,6 +38,7 @@
     position: absolute;
     width: 25px;
     right: 16px;
+    z-index: 5;
   }
 
   .miniMenu {
@@ -137,13 +138,14 @@
 
   .view {
     position: absolute;
-    top: 45px;
+    top: 135px;
   }
 
 }
 .body {
     color: white;
-    background-color: black;
+    /*background-color: black;*/
+    background-color: white;
     font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -283,14 +285,35 @@ font-size: 16px;
   z-index: 2;
 }
 
-.cart {
-  background-color: white;
-  height: 200px;
-  width:100px;
+.cartDropdown {
+  position: absolute;
+  top: 135px;
+  right: 0px;
+  width: 390px;
+  background-color: black;
+  color: black;
+  z-index: 5;
 }
 
-.cartItem {
-  color: black;
+.cartLineWrapper{
+  display: flex;
+  align-items: center;
+}
+
+.cartLineAbove {
+  border-top: 1px solid #d1d1d1;
+  width: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+.titleInCart {
+  color: white;
+  position: absolute;
+  
 }
 
 .cartFunction{
@@ -300,12 +323,42 @@ font-size: 16px;
   z-index: 2;
 }
 
-/*.headerTrans {
+.headerTrans{
 position: absolute;
+top: 40px;
 z-index: 3;
 width: 100%;
 height: 90px;
 margin-top: 5px;
 background: rgba(0,0,0,0.75);
 border-top: 1px solid #363636;
-}*/
+font-size: 16px;
+}
+
+.headerTrans img {
+  position: absolute;
+  top: 25px;
+  width: 25px;
+  z-index: 4;
+
+}
+
+.miniCart {
+  position: absolute;
+  background: #ff6200;
+  right: 0px;
+  width:90px;
+  height: 90px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.miniCart h1 {
+  position: absolute;
+  top: 55px;
+}
+
+.cartThumbnail img{
+  width: 107px;
+}

@@ -56,8 +56,10 @@ $scope.findAccount=function(){
 $scope.findAccount()
 
 $scope.showCart=function(){
+  $scope.shoppingCart=false;
   mainService.showCart().then(function(response){
-    $scope.cartItems=response;
+    console.log('heres the object', response)
+    $scope.cartItems=response.data;
   })
 }
 

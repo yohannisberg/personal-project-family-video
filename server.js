@@ -17,7 +17,7 @@ function hashPassword(password) {
 var app = module.exports = express();
 
 var conn = massive.connectSync({
-  connectionString : "postgres://postgres:jesus555@localhost:5433/personalProjectFamilyVideo"
+  connectionString : config.connString
 });
 
 app.set('db', conn);
@@ -154,17 +154,18 @@ app.post("/api/addMovie", function(req, res) {
   })
 });
 
-// app.get('/api/sessionCheck', function(req, resp) {
-//   resp.status(200).send(req.sessionID)
-// })
+app.post('/api/deleteMovie', function(req, res) {
+	const movie=req.body.movie;
+	console.log('from the server', movie)
+	db.deleteFromCart([movie.api_id, req.user.id], function(err, movie) {
+		if(!err){
+			res.send(movie)
+		}
+	})
+})
 
 app.get('/api/sessionCheck', function(req, resp) {
   resp.status(200).send(req.sessionID)
-  // db.findAccount([req.sessionID], function(err, user) {
-  //   console.log('is this anything', req.sessionID)
-  //   console.log('what about this', user)
-  //   resp.status(200).send(user);
-  // })
 })
 
 
@@ -182,11 +183,17 @@ app.get('/api/findAccount', function(req, res) {
 })
 
 app.get('/api/getCart', function(req,res) {
+	if(req.user==undefined){
+		res.send('NotSignedIn')
+	}
+	else{
   db.getCartItems([req.user.id], function(err, items) {
     if(!err){
       return res.status(200).send(items)
     }
+
   })
+}
 })
 
 app.listen(port, function(){

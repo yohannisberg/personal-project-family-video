@@ -2,6 +2,7 @@ angular.module('familyVideo').controller('mainCtrl', function($scope, mainServic
 
 $scope.searchBarClick=true;
 $scope.shoppingCart=true;
+$scope.emptyCart=true;
 
 $scope.openNav = function(){
   // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
@@ -56,10 +57,26 @@ $scope.findAccount=function(){
 $scope.findAccount()
 
 $scope.showCart=function(){
-  $scope.shoppingCart=false;
   mainService.showCart().then(function(response){
-    console.log('heres the object', response)
+    if(response.data==='NotSignedIn'){
+    $scope.emptyCart=false;
+    $scope.shoppingCart=true;
+    $scope.nothing='Nothing in here!'
+  }
+  else{
+    $scope.shoppingCart=false;
+    $scope.emptyCart=true;
     $scope.cartItems=response.data;
+
+  }
+  })
+}
+
+$scope.deleteItem=function(movie){
+  mainService.deleteItem(movie).then(function(response){
+    if(response){
+      $scope.showCart();
+    }
   })
 }
 

@@ -27,6 +27,7 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
 
   $scope.searchBarClick = true;
   $scope.shoppingCart = true;
+  $scope.emptyCart = true;
 
   $scope.openNav = function () {
     // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
@@ -81,10 +82,24 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   $scope.findAccount();
 
   $scope.showCart = function () {
-    $scope.shoppingCart = false;
     mainService.showCart().then(function (response) {
-      console.log('heres the object', response);
-      $scope.cartItems = response.data;
+      if (response.data === 'NotSignedIn') {
+        $scope.emptyCart = false;
+        $scope.shoppingCart = true;
+        $scope.nothing = 'Nothing in here!';
+      } else {
+        $scope.shoppingCart = false;
+        $scope.emptyCart = true;
+        $scope.cartItems = response.data;
+      }
+    });
+  };
+
+  $scope.deleteItem = function (movie) {
+    mainService.deleteItem(movie).then(function (response) {
+      if (response) {
+        $scope.showCart();
+      }
     });
   };
 });
@@ -156,6 +171,18 @@ angular.module('familyVideo').service('mainService', function ($http, $rootScope
     }).then(function (response) {});
   };
 
+  this.deleteItem = function (movie) {
+    return $http({
+      method: 'POST',
+      url: '/api/deleteMovie',
+      data: {
+        movie: movie
+      }
+    }).then(function (response) {
+      return response;
+    });
+  };
+
   // this.findAccount=function(sessionId){
   //   return $http({
   //     method: 'POST',
@@ -170,7 +197,6 @@ angular.module('familyVideo').service('mainService', function ($http, $rootScope
 
   this.findAccount = function () {
     return $http.get('/api/findAccount').then(function (response) {
-      console.log('!!!This be from the service', response);
       $rootScope.$emit('user', response.data);
       return response;
     });
@@ -178,6 +204,7 @@ angular.module('familyVideo').service('mainService', function ($http, $rootScope
 
   this.showCart = function () {
     return $http.get('/api/getCart').then(function (response) {
+      console.log('does this work or what', response);
       return response;
     });
   };

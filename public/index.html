@@ -19,6 +19,7 @@
   </div>
 
   <div id='main'>
+    <div class='topBlackHeader'></div>
     <header class='header-background page-header'>
       <div class='leftNav italic'>
       Welcome to Our New Site! Returning Customers: Please
@@ -64,20 +65,28 @@
   </div>
 </div> -->
 
-<div class='headerTrans' >
+<div class='headerTrans'>
   <div class='miniCart'>
     <img ng-src='./pictures/other/white-shopping-cart-md.png'>
-    <h1 ng-click='showCart()'>Cart</h1>
+    <h1 ng-click='showCart()' class='cursor'>Cart</h1>
   </div>
 </div>
 
 <div ng-hide='shoppingCart' class='cartDropdown'>
 <ul ng-repeat='item in cartItems'>
 <li class= 'cartLineAbove'>
-  <span class='titleInCart'>{{item.movie_title}}</span>
+<div class='titleInCart'>{{item.movie_title}} DVD</div>
+<div class='priceInCart'>$4.99</div>
+<img ng-click='deleteItem(item)' class='xInCart' ng-src='./pictures/other/x-mark.png'>
 </li>
 <li class='cartThumbnail'><img ng-src='https://image.tmdb.org/t/p/w500{{item.picture}}'></li>
 </ul>
+<div class= 'cartLineAbove'></div>
+<div class='checkoutButton'>Checkout</div>
+</div>
+
+<div ng-hide='emptyCart' class='cartDropdown'>
+<div class='emptyCartMessage'>You have no items in your shopping cart.</div>
 </div>
 
 </div>

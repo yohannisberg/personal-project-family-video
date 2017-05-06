@@ -66,6 +66,18 @@ angular.module('familyVideo').service('mainService', function($http, $rootScope)
     })
   }
 
+  this.deleteItem=function(movie){
+    return $http({
+      method: 'POST',
+      url: '/api/deleteMovie',
+      data: {
+        movie: movie
+      }
+    }).then(function(response){
+      return response;
+    })
+  }
+
   // this.findAccount=function(sessionId){
   //   return $http({
   //     method: 'POST',
@@ -80,7 +92,6 @@ angular.module('familyVideo').service('mainService', function($http, $rootScope)
 
   this.findAccount=function(){
     return $http.get('/api/findAccount').then(function(response){
-      console.log('!!!This be from the service', response)
       $rootScope.$emit('user', response.data);
       return response;
     })
@@ -88,6 +99,7 @@ angular.module('familyVideo').service('mainService', function($http, $rootScope)
 
   this.showCart=function(){
     return $http.get('/api/getCart').then(function(response) {
+      console.log('does this work or what', response)
       return response;
     })
   }

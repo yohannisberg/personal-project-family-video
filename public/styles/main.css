@@ -519,13 +519,63 @@ font-size: 16px;
   padding-bottom: 40px;
 }
 
+.registeredCustWrapper{
+  width: 48%;
+  float: left;
+}
+
 .registeredCust {
   font-weight:700;
   font-size: 18px;
   border-bottom: 1px solid #e8e8e8;
   padding-bottom: 12px;
   margin-bottom: 35px;
+  width: 90%;
 }
 
-.block-title{
+#logInRegistered h1{
+  font-weight:700;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+#logInRegistered input{
+  background: rgb(250, 255, 189);
+  height: 32px;
+  font-size: 14px;
+  width: 268.531px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+#logInRegistered span{
+  /*background: rgb(250, 255, 189);
+  height: 32px;
+  font-size: 14px;
+  width: 268.531px;
+  padding-left: 9px;
+  padding-right: 9px;*/
+  color: #e02b27;
+}
+
+.submitButton{
+  background-color: #ff6200;
+  font-weight: 400;
+  color: white;
+  padding: 7px 15px;
+  width: 44px;
+  height: 20px;
+  margin-top: 20px;
+}
+
+.requiredField{
+  color: #e02b27;
+  font-size: 12.5px;
+  margin-top: 25px;
+}
+
+.registeredCustWrapperRightSide{
+  width: 52%;
+  float: right;
+
 }

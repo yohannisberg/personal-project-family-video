@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,600");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,600,700");
 @media screen and (max-width: 1024px) {
   .leftNav {
     text-align: center;
@@ -97,20 +97,19 @@
 
 .body {
   color: white;
-  /*background-color: black;*/
-  background-color: white;
+  background-color: black;
   font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.42857143;
   font-size: 14.3px; }
 
-/*.topBlackHeader {
+.topBlackHeader {
   position: absolute;
   background-color: black;
-  width:100%;
-  height: 135px;
-}*/
+  width: 100%;
+  height: 135px; }
+
 .topWrapper {
   width: 100%;
   text-align: center;
@@ -216,16 +215,18 @@
 .lineAbove {
   border-top: 1px solid #d1d1d1; }
 
-.topBanner {
-  width: 100%;
+.topBannerWrapper {
+  width: 100vw;
   height: 750px;
+  /*display: flex;
+  justify-content: center;*/ }
+
+.topBanner {
   position: relative;
-  z-index: 1;
   top: -90px;
-  /*background-size: cover;
-  background-position: center;*/
-  /*display: -webkit-flex;
-  align-items: center;*/ }
+  width: 100%;
+  background-size: cover;
+  background-position: center; }
 
 .tempSignedIn {
   position: relative;
@@ -280,8 +281,19 @@
 
 .headerTransWrapper {
   width: 100%;
+  height: 90px;
   display: flex;
   justify-content: center; }
+
+.headerBackgroundWrapper {
+  width: 100%;
+  height: 90px;
+  position: absolute;
+  background-color: red;
+  z-index: 3;
+  top: 45px;
+  border-top: 1px solid #363636;
+  background-color: rgba(0, 0, 0, 0.75); }
 
 .headerTrans {
   position: absolute;
@@ -291,8 +303,6 @@
   width: 1240px;
   height: 90px;
   margin-top: 5px;
-  background: rgba(0, 0, 0, 0.75);
-  border-top: 1px solid #363636;
   font-size: 16px; }
 
 .headerTrans img {
@@ -301,12 +311,15 @@
   width: 25px;
   z-index: 4; }
 
+.lowerMenu li {
+  cursor: pointer; }
+
 .miniAccount {
   position: absolute;
   background: white;
   right: 90px;
   width: 90px;
-  height: 90px;
+  height: 91px;
   z-index: 4;
   display: flex;
   justify-content: center; }
@@ -328,7 +341,7 @@
   background: #ff6200;
   right: 0px;
   width: 90px;
-  height: 90px;
+  height: 91px;
   z-index: 3;
   display: flex;
   justify-content: center; }
@@ -393,6 +406,33 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: row; }
+
+.signInWhiteBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  color: black; }
+
+.signInWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.customerLogin {
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 100;
+  padding-top: 40px;
+  padding-bottom: 40px; }
+
+.registeredCust {
+  font-weight: 700;
+  font-size: 18px;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 12px;
+  margin-bottom: 35px; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

@@ -19,7 +19,10 @@
   </div>
 
   <div id='main'>
+
     <div class='topBlackHeader'></div>
+
+    <div class= 'topWrapper'>
     <header class='header-background page-header'>
       <div class='leftNav italic'>
       Welcome to Our New Site! Returning Customers: Please
@@ -43,6 +46,7 @@
     <img class='searchMagGlassMinView' src ='./pictures/other/business-search.png' alt="Magnifying glass">
   </span>
 
+
   <span class='header-outer'>
     <span ng-click='openNav()'><span class='lineAboveMenu'></span><span class='miniMenu'>menu</span></span>
 
@@ -50,6 +54,7 @@
     <img class='shoppingCart' src='./pictures/other/white-shopping-cart-md.png' alt='Shopping Cart'>
   </span>
 </header>
+</div>
 
 <div class='belowHeader'>
 
@@ -65,11 +70,38 @@
   </div>
 </div> -->
 
+
+<div class='headerTransWrapper'>
 <div class='headerTrans'>
+
+  <div class='logo'>
+  <a ui-sref='home'>
+
+    <img class='logo' src='./pictures/other/logo-white.png' alt='Family Video Logo'>
+  </a>
+  </div>
+
+  <div class='lowerMenuWrapper'>
+    <ul class='lowerMenu'>
+      <li>Browse All</li>
+      <li>New Release Rentals</li>
+      <li>New & Coming Soon</li>
+      <li>Spotlight</li>
+      <li>Used Movies</li>
+      <li>Deals</li>
+    </ul>
+  </div>
+
+  <div class='miniAccount'>
+    <img ng-src='./pictures/other/People-512.png'>
+    <a ui-sref="account"><h1 class='cursor' ng-click='shoppingCart=shoppingCart'>Account</h1></a>
+  </div>
+
   <div class='miniCart'>
     <img ng-src='./pictures/other/white-shopping-cart-md.png'>
     <h1 ng-click='showCart()' class='cursor'>Cart</h1>
   </div>
+</div>
 </div>
 
 <div ng-hide='shoppingCart' class='cartDropdown'>

@@ -111,6 +111,12 @@
   width:100%;
   height: 135px;
 }*/
+.topWrapper {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center; }
+
 .page-header {
   display: flex;
   align-items: center;
@@ -120,7 +126,7 @@
   color: #d7d7d7;
   max-width: 1240px;
   /*padding: 5px 20px 5px 20px;*/
-  width: auto; }
+  max-width: 1240px; }
 
 .header-background {
   position: absolute;
@@ -272,11 +278,17 @@
   right: -900px;
   z-index: 2; }
 
+.headerTransWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
 .headerTrans {
   position: absolute;
   top: 40px;
   z-index: 3;
-  width: 100%;
+  /*width: 100%;*/
+  width: 1240px;
   height: 90px;
   margin-top: 5px;
   background: rgba(0, 0, 0, 0.75);
@@ -288,6 +300,28 @@
   top: 25px;
   width: 25px;
   z-index: 4; }
+
+.miniAccount {
+  position: absolute;
+  background: white;
+  right: 90px;
+  width: 90px;
+  height: 90px;
+  z-index: 4;
+  display: flex;
+  justify-content: center; }
+
+.headerTrans .logo {
+  position: absolute;
+  width: 189px;
+  top: 15px;
+  left: 10px; }
+
+.miniAccount a {
+  color: black;
+  position: relative;
+  top: 55px;
+  text-decoration: none; }
 
 .miniCart {
   position: absolute;
@@ -343,6 +377,22 @@
   top: 84px;
   left: 327px;
   width: 15px; }
+
+.lowerMenuWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 21px; }
+
+.lowerMenu {
+  position: absolute;
+  width: 829.812px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

@@ -217,6 +217,8 @@ angular.module('familyVideo').controller('createAccountCtrl', function ($scope, 
     if (user.password === $scope.confirmPassword) {
       console.log('passwords match');
       mainService.createAccount(user);
+      $scope.user = {};
+      $scope.confirmPassword = "";
     } else {
       alert('nope');
       // use sweet alerts
@@ -285,7 +287,7 @@ angular.module('familyVideo').controller('signInCtrl', function ($scope, mainSer
   $scope.logIn = function (account) {
     mainService.logInUser(account).then(function (response) {
       console.log('from login', response);
-      // $scope.firstName = response.data[0].first_name;
+      $scope.account = {};
 
       // alert('Hello '+firstName)
     });

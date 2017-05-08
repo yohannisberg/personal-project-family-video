@@ -4,6 +4,8 @@ angular.module('familyVideo').controller('createAccountCtrl', function($scope, m
     if (user.password === $scope.confirmPassword) {
       console.log('passwords match');
       mainService.createAccount(user)
+      $scope.user={};
+      $scope.confirmPassword="";
     } else {
       alert('nope')
       // use sweet alerts

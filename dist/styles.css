@@ -413,6 +413,12 @@
   background-color: white;
   color: black; }
 
+.createAccountBackground {
+  width: 100vw;
+  height: 100%;
+  background-color: white;
+  color: black; }
+
 .signInWrapper {
   margin-left: auto;
   margin-right: auto;
@@ -461,14 +467,71 @@
   padding-right: 9px;*/
   color: #e02b27; }
 
-.submitButton {
+#createNewAccount h1 {
+  font-weight: 700;
+  margin-top: 25px;
+  margin-bottom: 5px; }
+
+#createNewAccount input {
+  height: 32px;
+  font-size: 14px;
+  width: 90%;
+  padding-left: 9px;
+  padding-right: 9px; }
+
+#createNewAccount span {
+  color: #e02b27; }
+
+.createAccountButton {
+  margin-top: 25px; }
+
+.createAccountButton a {
   background-color: #ff6200;
+  font-weight: 400;
+  color: white;
+  padding: 7px 16px;
+  width: 44px;
+  height: 21px;
+  margin-top: 20px;
+  text-decoration: none; }
+
+#createNewAccount .createAccountButton2 {
+  /*border: none;*/
+  background-color: #ff6200;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  padding: 7px 13px;
+  width: 150px;
+  height: 36px;
+  margin-top: 20px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer; }
+
+#logInRegistered .submitButton {
+  /*background-color: #ff6200;
   font-weight: 400;
   color: white;
   padding: 7px 15px;
   width: 44px;
   height: 20px;
-  margin-top: 20px; }
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;*/
+  background-color: #ff6200;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  padding: 7px 13px;
+  width: 150px;
+  height: 36px;
+  margin-top: 20px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer; }
 
 .requiredField {
   color: #e02b27;

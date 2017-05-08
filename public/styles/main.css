@@ -77,6 +77,8 @@
     position: absolute;
     right: 44.50px;
     /*margin-left: 20px;*/
+    display: flex;
+    align-items: center;
   }
 
   .rightLinks a {
@@ -100,7 +102,13 @@
    color: black;
   }
 
-  .searchInput {
+  .formTesting{
+      position: absolute;
+      left: -220px;
+      top: 5px;
+    }
+
+    .searchInput {
     height: 41px;
     width: 190px;
     font-size: 12px;
@@ -203,8 +211,8 @@
 
 .inputBackground {
   position: absolute;
-  top: 9px;
-  left: 199px;
+  top: 12px;
+  left: -30px;
   width: 50px;
   background: url('./pictures/other/business-search.png') no-repeat scroll 7px 7px;
   /*padding-left: 30px;*/
@@ -614,18 +622,6 @@ font-size: 16px;
 }
 
 #logInRegistered .submitButton{
-  /*background-color: #ff6200;
-  font-weight: 400;
-  color: white;
-  padding: 7px 15px;
-  width: 44px;
-  height: 20px;
-  margin-top: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  border: 0;
-  cursor: pointer;*/
-
   background-color: #ff6200;
   font-weight: 400;
   font-size: 14px;

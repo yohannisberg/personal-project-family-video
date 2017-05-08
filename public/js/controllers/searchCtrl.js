@@ -2,6 +2,7 @@ angular.module('familyVideo').controller('searchCtrl', function($scope, mainServ
 
   $scope.addToCart=function(movieObject){
     mainService.addMovieToCart(movieObject)
+    $scope.showCart();
   };
 
   // mainService.testing=$scope.searchQuery;

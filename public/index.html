@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="./styles/sweetalert.css">
     <title>Family Video</title>
   </head>
   <body class='body' ng-controller='mainCtrl'>
@@ -30,10 +31,14 @@
     </div>
     <div class='rightLinks'>
 
+      <form ng-submit='controlData(searchQuery)'>
       <span ng-hide='searchBarClick'>
-      <input ng-model='searchQuery' type='text' class='searchInput' placeholder='Search' maxlength='128'>
-      <a ui-sref="search"><img ng-click='controlData(searchQuery)' class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass"></a>
-    </span>
+      <input ng-model='searchQuery' type='text' class='searchInput formTesting' placeholder='Search' maxlength='128'>
+      <a ui-sref="search">
+        <img ng-click='controlData(searchQuery)' class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass">
+      </a>
+      </span>
+      </form>
 
       <span ng-click='searchBarClick=!searchBarClick' ng-show='searchBarClick' class='origSearchWrapper'>Search
       </span>
@@ -93,12 +98,12 @@
   </div>
 
   <div class='miniAccount'>
-    <img ng-src='./pictures/other/People-512.png'>
+    <img ng-src='./pictures/other/People-512.png' alt='User'>
     <a ui-sref="account"><h1 class='cursor' ng-click='shoppingCart=shoppingCart'>Account</h1></a>
   </div>
 
   <div class='miniCart'>
-    <img ng-src='./pictures/other/white-shopping-cart-md.png'>
+    <img ng-src='./pictures/other/white-shopping-cart-md.png' alt='Shopping Cart'>
     <h1 ng-click='showCart()' class='cursor'>Cart</h1>
   </div>
 </div>
@@ -123,7 +128,7 @@
 
 </div>
 
-<div class='view'>
+<div class='view' ng-click='closeCart(); closeEmptyCart(); closeSearchBar()'>
 <div ui-view></div>
 </div>
 
@@ -132,5 +137,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
   <script src='./js/bundle.js'></script>
+  <script src="./js/sweetalert.min.js"></script>
   </body>
 </html>

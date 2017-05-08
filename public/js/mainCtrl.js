@@ -1,4 +1,4 @@
-angular.module('familyVideo').controller('mainCtrl', function($scope, mainService, $rootScope){
+angular.module('familyVideo').controller('mainCtrl', function($scope, mainService, $rootScope, $state){
 
 $scope.searchBarClick=true;
 $scope.shoppingCart=true;
@@ -18,7 +18,9 @@ $scope.closeNav = function(){
 
 $scope.controlData=function(query){
   mainService.getMovies(query).then(function(response){
+    $state.go('search');
     $scope.forHtml=response;
+    $scope.searchQuery='';
   })
 }
 
@@ -61,7 +63,6 @@ $scope.showCart=function(){
     if(response.data==='NotSignedIn'){
     $scope.emptyCart=false;
     $scope.shoppingCart=true;
-    $scope.nothing='Nothing in here!'
   }
   else{
     $scope.shoppingCart=false;
@@ -70,6 +71,25 @@ $scope.showCart=function(){
 
   }
   })
+}
+
+$scope.closeCart=function(){
+  console.log('yup')
+  if(!$scope.shoppingCart){
+    $scope.shoppingCart=true;
+  }
+}
+
+$scope.closeEmptyCart=function(){
+  if(!$scope.emptyCart){
+      $scope.emptyCart=true;
+}
+}
+
+$scope.closeSearchBar=function(){
+  if(!$scope.searchBarClick){
+    $scope.searchBarClick=true;
+  }
 }
 
 $scope.deleteItem=function(movie){

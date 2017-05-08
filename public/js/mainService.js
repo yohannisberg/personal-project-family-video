@@ -1,10 +1,10 @@
 angular.module('familyVideo').service('mainService', function($http, $rootScope){
+
   //This 'this' is the mainService- used within a function
   let self=this;
 
   this.checkSessions=function(){
     return $http.get('/api/sessionCheck').then(function(response){
-      console.log('this is the sessionsCheck in the service', response)
       return response;
     })
   }

@@ -17,6 +17,7 @@ $scope.closeNav = function(){
 }
 
 $scope.controlData=function(query){
+  mainService.forSearch(query);
   mainService.getMovies(query).then(function(response){
     $state.go('search');
     $scope.forHtml=response;
@@ -27,7 +28,6 @@ $scope.controlData=function(query){
 $scope.sessionCheck=function(){
   mainService.checkSessions().then(function(response){
     const sessId=response.data;
-    console.log(sessId)
   })
  }
 

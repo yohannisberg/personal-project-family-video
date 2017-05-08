@@ -419,6 +419,22 @@
   background-color: white;
   color: black; }
 
+.searchWhiteBackground {
+  width: 100vw;
+  height: 100%;
+  background-color: white;
+  color: black; }
+
+.searchWrapper {
+  max-width: 1280px;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.searchHeader {
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 100; }
+
 .createAccountBackground {
   width: 100vw;
   height: 100%;

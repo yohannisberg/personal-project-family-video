@@ -42,6 +42,7 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   };
 
   $scope.controlData = function (query) {
+    mainService.forSearch(query);
     mainService.getMovies(query).then(function (response) {
       $state.go('search');
       $scope.forHtml = response;
@@ -52,7 +53,6 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   $scope.sessionCheck = function () {
     mainService.checkSessions().then(function (response) {
       var sessId = response.data;
-      console.log(sessId);
     });
   };
 
@@ -126,12 +126,12 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
 'use strict';
 
 angular.module('familyVideo').service('mainService', function ($http, $rootScope) {
+
   //This 'this' is the mainService- used within a function
   var self = this;
 
   this.checkSessions = function () {
     return $http.get('/api/sessionCheck').then(function (response) {
-      console.log('this is the sessionsCheck in the service', response);
       return response;
     });
   };
@@ -1865,12 +1865,18 @@ angular.module('familyVideo').controller('homeCtrl', function ($scope, mainServi
 // }
 'use strict';
 
-angular.module('familyVideo').controller('searchCtrl', function ($scope, mainService) {
+angular.module('familyVideo').controller('searchCtrl', function ($scope, mainService, $interval) {
 
   $scope.addToCart = function (movieObject) {
     mainService.addMovieToCart(movieObject);
     $scope.showCart();
   };
+
+  $scope.query = mainService.query;
+
+  // $interval(function(){
+  //   console.log('from search rontrol,', $scope.query, "num2",mainService.query)
+  // }, 1000)
 
   // mainService.testing=$scope.searchQuery;
 

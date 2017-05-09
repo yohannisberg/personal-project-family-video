@@ -42,7 +42,7 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   };
 
   $scope.controlData = function (query) {
-    mainService.forSearch(query);
+    $scope.forSearch = query;
     mainService.getMovies(query).then(function (response) {
       $state.go('search');
       $scope.forHtml = response;
@@ -224,7 +224,6 @@ angular.module('familyVideo').service('mainService', function ($http, $rootScope
 
   this.showCart = function () {
     return $http.get('/api/getCart').then(function (response) {
-      console.log('does this work or what', response);
       return response;
     });
   };
@@ -1895,6 +1894,17 @@ angular.module('familyVideo').controller('signInCtrl', function ($scope, mainSer
 
       alert('Hello');
     });
+  };
+});
+'use strict';
+
+angular.module('familyVideo').directive('navBar', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/navBar.html',
+    link: function link(scope) {},
+    controller: 'mainCtrl'
   };
 });
 //# sourceMappingURL=bundle.js.map

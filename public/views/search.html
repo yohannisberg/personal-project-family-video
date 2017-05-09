@@ -1,13 +1,16 @@
 <div class='searchWhiteBackground'>
 <div class='searchWrapper'>
 
-<div class='searchHeader'>Search results for: {{query}}</div>
-<div ng-repeat="movie in forHtml">
+<div class='searchHeader'>Search results for: {{forSearch}}</div>
+
+<div class='movieWrapper'>
+<div class='individualMovieWrapper' ng-repeat="movie in forHtml">
 <ul>
 <img class='movieCover' ng-src='https://image.tmdb.org/t/p/w500{{movie.poster_path}}' alt='Movie Poster'>
-<li>{{movie.original_title}} DVD</li>
-<button ng-click='addToCart(movie)'>Add to cart</button>
+<li>{{movie.original_title}} DVD - $4.99</li>
+<button class='addToCart' ng-click='addToCart(movie)'>Add to cart</button>
 </ul>
+</div>
 </div>
 </div>
 </div>

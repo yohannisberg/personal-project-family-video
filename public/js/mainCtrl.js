@@ -17,7 +17,7 @@ $scope.closeNav = function(){
 }
 
 $scope.controlData=function(query){
-  mainService.forSearch(query);
+  $scope.forSearch=query;
   mainService.getMovies(query).then(function(response){
     $state.go('search');
     $scope.forHtml=response;

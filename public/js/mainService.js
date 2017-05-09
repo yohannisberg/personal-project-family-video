@@ -99,7 +99,6 @@ angular.module('familyVideo').service('mainService', function($http, $rootScope)
 
   this.showCart=function(){
     return $http.get('/api/getCart').then(function(response) {
-      console.log('does this work or what', response)
       return response;
     })
   }

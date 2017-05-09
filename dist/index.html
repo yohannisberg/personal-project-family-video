@@ -6,133 +6,13 @@
     <link rel="stylesheet" type="text/css" href="./styles/sweetalert.4db6769b.css">
     <title>Family Video</title>
   </head>
-  <body class='body' ng-controller='mainCtrl'>
+  <body class='body'>
 
-  <div id="mySidenav" class="sidenav">
+    <nav-bar></nav-bar>
 
-  <span class = 'welcomeMenu' href="#">Welcome to Our New Site! Returning Customers: Please Reset Your Password. <a href="javascript:void(0)" class="closebtn theX" ng-click="closeNav()">&times;</a></span>
-  <a class= 'lineAbove' href="#">Browse All</a>
-  <a class= 'lineAbove' href="#">New Release Rentals</a>
-  <a class= 'lineAbove' href="#">New & Coming Soon</a>
-  <a class= 'lineAbove' href="#">Spotlight</a>
-  <a class= 'lineAbove' href="#">Used Movies</a>
-  <a class= 'lineAbove' href="#">Deals</a>
-  </div>
-
-  <div id='main'>
-
-    <div class='topBlackHeader'></div>
-
-    <div class= 'topWrapper'>
-    <header class='header-background page-header'>
-      <div class='leftNav italic'>
-      Welcome to Our New Site! Returning Customers: Please
-      <a href="https://familyvideo.com/customer/account/forgotpassword/" class='orangeFont'>Reset Your Password.</a>
+    <div class='view' ng-click='closeCart(); closeEmptyCart(); closeSearchBar()'>
+    <div ui-view></div>
     </div>
-    <div class='rightLinks'>
-
-      <form ng-submit='controlData(searchQuery)'>
-      <span ng-hide='searchBarClick'>
-      <input ng-model='searchQuery' type='text' class='searchInput formTesting' placeholder='Search' maxlength='128'>
-      <a ui-sref="search">
-        <img ng-click='controlData(searchQuery)' class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass">
-      </a>
-      </span>
-      </form>
-
-      <span ng-click='searchBarClick=!searchBarClick' ng-show='searchBarClick' class='origSearchWrapper'>Search
-      </span>
-
-      <a href="https://www.familyvideo.com/storelocator/" title="Find a Store Near You">Find a Store</a>
-    <a href="http://www.highlandventuresltd.com/" title="Career Opportunities at Highland Ventures Ltd.">Career Opportunities</a>
-  </div>
-
-  <span>
-    <img class='searchMagGlassMinView' src ='./pictures/other/business-search.png' alt="Magnifying glass">
-  </span>
-
-
-  <span class='header-outer'>
-    <span ng-click='openNav()'><span class='lineAboveMenu'></span><span class='miniMenu'>menu</span></span>
-
-    <img class='whiteLogo' src='./pictures/other/logo-white.png' alt='Family Video Logo'>
-    <img class='shoppingCart' src='./pictures/other/white-shopping-cart-md.png' alt='Shopping Cart'>
-  </span>
-</header>
-</div>
-
-<div class='belowHeader'>
-
-<!-- <a class='tempSignedIn' ng-show='notSignedIn' ui-sref="account">Sign In</a>
-<div class='tempSignedIn' ng-hide='signedIn'>Signed in: {{user.first_name}}</div> -->
-
-<!-- <div class='cartIcon' ng-click='showCart()'>Cart
-  <div ng-hide='shoppingCart' class='cart cartItem'>
-  <ul ng-repeat='item in cartItems'>
-  <li>{{item.movie_title}}</li>
-  <li class='cartItem'><img ng-src='https://image.tmdb.org/t/p/w500{{item.picture}}'></li>
-  </ul>
-  </div>
-</div> -->
-
-<div class='headerBackgroundWrapper'></div>
-<div class='headerTransWrapper'>
-<div class='headerTrans'>
-
-  <div class='logo'>
-  <a ui-sref='home'>
-
-    <img class='logo' src='./pictures/other/logo-white.png' alt='Family Video Logo'>
-  </a>
-  </div>
-
-  <div class='lowerMenuWrapper'>
-    <ul class='lowerMenu block-title'>
-      <li>Browse All</li>
-      <li>New Release Rentals</li>
-      <li>New & Coming Soon</li>
-      <li>Spotlight</li>
-      <li>Used Movies</li>
-      <li>Deals</li>
-    </ul>
-  </div>
-
-  <div class='miniAccount'>
-    <img ng-src='./pictures/other/People-512.png' alt='User'>
-    <a ui-sref="account"><h1 class='cursor' ng-click='shoppingCart=shoppingCart'>Account</h1></a>
-  </div>
-
-  <div class='miniCart'>
-    <img ng-src='./pictures/other/white-shopping-cart-md.png' alt='Shopping Cart'>
-    <h1 ng-click='showCart()' class='cursor'>Cart</h1>
-  </div>
-</div>
-</div>
-
-<div ng-hide='shoppingCart' class='cartDropdown'>
-<ul ng-repeat='item in cartItems'>
-<li class= 'cartLineAbove'>
-<div class='titleInCart'>{{item.movie_title}} DVD</div>
-<div class='priceInCart'>$4.99</div>
-<img ng-click='deleteItem(item)' class='xInCart' ng-src='./pictures/other/x-mark.png'>
-</li>
-<li class='cartThumbnail'><img ng-src='https://image.tmdb.org/t/p/w500{{item.picture}}'></li>
-</ul>
-<div class= 'cartLineAbove'></div>
-<div class='checkoutButton'>Checkout</div>
-</div>
-
-<div ng-hide='emptyCart' class='cartDropdown'>
-<div class='emptyCartMessage'>You have no items in your shopping cart.</div>
-</div>
-
-</div>
-
-<div class='view' ng-click='closeCart(); closeEmptyCart(); closeSearchBar()'>
-<div ui-view></div>
-</div>
-
-</div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>

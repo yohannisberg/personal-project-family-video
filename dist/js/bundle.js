@@ -28,17 +28,18 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   $scope.searchBarClick = true;
   $scope.shoppingCart = true;
   $scope.emptyCart = true;
+  $scope.searchBarClickMini = true;
 
   $scope.openNav = function () {
     // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
-    document.getElementById("mySidenav").style.width = "93%";
+    document.getElementById("mySidenav").style.width = "90%";
     // document.getElementById("main").style.marginLeft = "calc(100%-54px)";
-    document.getElementById("main").style.marginLeft = "93%";
+    // document.getElementById("main").style.marginLeft = "90%";
   };
 
   $scope.closeNav = function () {
     document.getElementById("mySidenav").style.width = "0px";
-    document.getElementById("main").style.marginLeft = "0px";
+    // document.getElementById("main").style.marginLeft = "0px";
   };
 
   $scope.controlData = function (query) {
@@ -47,6 +48,7 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
       $state.go('search');
       $scope.forHtml = response;
       $scope.searchQuery = '';
+      $scope.searchBarClickMini = true;
     });
   };
 
@@ -70,7 +72,7 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   // $scope.findAccount();
 
   $rootScope.$on('user', function (response) {
-    console.log(response);
+    console.log(response.data);
     $scope.user = response;
   });
 
@@ -97,7 +99,6 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   };
 
   $scope.closeCart = function () {
-    console.log('yup');
     if (!$scope.shoppingCart) {
       $scope.shoppingCart = true;
     }
@@ -112,6 +113,12 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   $scope.closeSearchBar = function () {
     if (!$scope.searchBarClick) {
       $scope.searchBarClick = true;
+    }
+  };
+
+  $scope.closeMiniSearch = function () {
+    if (!$scope.searchBarClickMini) {
+      $scope.searchBarClickMini = true;
     }
   };
 
@@ -1867,8 +1874,9 @@ angular.module('familyVideo').controller('homeCtrl', function ($scope, mainServi
 angular.module('familyVideo').controller('searchCtrl', function ($scope, mainService, $interval) {
 
   $scope.addToCart = function (movieObject) {
-    mainService.addMovieToCart(movieObject);
-    $scope.showCart();
+    mainService.addMovieToCart(movieObject).then(function () {
+      // $scope.showCart();
+    });
   };
 
   $scope.query = mainService.query;

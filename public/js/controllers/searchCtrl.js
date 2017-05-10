@@ -1,8 +1,9 @@
 angular.module('familyVideo').controller('searchCtrl', function($scope, mainService, $interval){
 
   $scope.addToCart=function(movieObject){
-    mainService.addMovieToCart(movieObject);
-    $scope.showCart();
+    mainService.addMovieToCart(movieObject).then(function(){
+      // $scope.showCart();
+    })
   };
 
   $scope.query=mainService.query;

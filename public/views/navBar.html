@@ -7,6 +7,7 @@
 <a class= 'lineAbove' href="#">Spotlight</a>
 <a class= 'lineAbove' href="#">Used Movies</a>
 <a class= 'lineAbove' href="#">Deals</a>
+<a class= 'lineAbove' ng-click='closeNav()' ui-sref="account">Sign In</a>
 </div>
 
 <div id='main'>
@@ -37,19 +38,25 @@
   <a href="http://www.highlandventuresltd.com/" title="Career Opportunities at Highland Ventures Ltd.">Career Opportunities</a>
 </div>
 
-<span>
-  <img class='searchMagGlassMinView' src ='./pictures/other/business-search.png' alt="Magnifying glass">
-</span>
-
-
 <span class='header-outer'>
   <span ng-click='openNav()'><span class='lineAboveMenu'></span><span class='miniMenu'>menu</span></span>
 
-  <img class='whiteLogo' src='./pictures/other/logo-white.png' alt='Family Video Logo'>
-  <img class='shoppingCart' src='./pictures/other/white-shopping-cart-md.png' alt='Shopping Cart'>
+  <a ui-sref='home'><img class='whiteLogo' src='./pictures/other/logo-white.png' alt='Family Video Logo'></a>
+  <img ng-click='showCart()' class='shoppingCart cursor' src='./pictures/other/white-shopping-cart-md.png' alt='Shopping Cart'>
 </span>
 </header>
 </div>
+
+<!-- miniMAG -->
+<form ng-submit='controlData(searchQuery)'>
+  <img ng-click='searchBarClickMini=!searchBarClickMini' class='searchMagGlassMinView' src ='./pictures/other/business-search.png' alt="Magnifying glass">
+
+<div ng-hide='searchBarClickMini'>
+<div class='dropdownSearchMini'>
+<input ng-model='searchQuery' type='text' class='miniSearchInput' placeholder='Search' maxlength='128'>
+</div>
+</div>
+</form>
 
 <div class='belowHeader'>
 

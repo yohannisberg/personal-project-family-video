@@ -3,17 +3,18 @@ angular.module('familyVideo').controller('mainCtrl', function($scope, mainServic
 $scope.searchBarClick=true;
 $scope.shoppingCart=true;
 $scope.emptyCart=true;
+$scope.searchBarClickMini=true;
 
 $scope.openNav = function(){
   // document.getElementById("mySidenav").style.width = "calc(100%-54px)";
-  document.getElementById("mySidenav").style.width = "93%";
+  document.getElementById("mySidenav").style.width = "90%";
   // document.getElementById("main").style.marginLeft = "calc(100%-54px)";
-  document.getElementById("main").style.marginLeft = "93%";
+  // document.getElementById("main").style.marginLeft = "90%";
 }
 
 $scope.closeNav = function(){
   document.getElementById("mySidenav").style.width = "0px";
-  document.getElementById("main").style.marginLeft = "0px";
+  // document.getElementById("main").style.marginLeft = "0px";
 }
 
 $scope.controlData=function(query){
@@ -22,6 +23,7 @@ $scope.controlData=function(query){
     $state.go('search');
     $scope.forHtml=response;
     $scope.searchQuery='';
+    $scope.searchBarClickMini=true;
   })
 }
 
@@ -45,7 +47,7 @@ $scope.notSignedIn=true;
 // $scope.findAccount();
 
 $rootScope.$on('user', function(response){
-  console.log(response)
+  console.log(response.data)
   $scope.user=response;
 })
 
@@ -74,7 +76,6 @@ $scope.showCart=function(){
 }
 
 $scope.closeCart=function(){
-  console.log('yup')
   if(!$scope.shoppingCart){
     $scope.shoppingCart=true;
   }
@@ -89,6 +90,12 @@ $scope.closeEmptyCart=function(){
 $scope.closeSearchBar=function(){
   if(!$scope.searchBarClick){
     $scope.searchBarClick=true;
+  }
+}
+
+$scope.closeMiniSearch=function(){
+  if(!$scope.searchBarClickMini){
+    $scope.searchBarClickMini=true;
   }
 }
 

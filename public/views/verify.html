@@ -1,0 +1,48 @@
+<div class='checkoutWhiteBackground'>
+  <div class='checkoutWrapper'>
+    <div class='checkoutWrapper'>
+
+    <!-- <div class='reviewPayment'></div> -->
+
+    <div class='verifyLeftSide'>
+    <h1 class='verifyAddress'>Verify Your Address</h1>
+    <h2 class='lastCheckAddress'>If the address below is correct then you don’t need to do anything. To change your address, click here.</h2>
+
+    <div class='originalAddressText'>
+      <ul>
+      <li>{{address.first_name}} {{address.last_name}}</li>
+      <li>{{address.address}}</li>
+      <li>{{address.city}} {{address.state}} {{address.zip}}</li>
+    </ul>
+    </div>
+
+    <!-- <div class> -->
+    <div class='verifyAddress'>Payment Method:</div>
+      <div class='paymentMeth'>
+      <input type='radio' name='verify'><img ng-src='./pictures/other/paypal.png'>PayPal
+      </div>
+
+      <div class='cards'>
+        <img id='aeCard' ng-class='aeCard' ng-src='./pictures/other/ae.png'>
+        <img id='viCard' ng-class='viCard' ng-src='./pictures/other/vi.png'>
+        <img id='mcCard' ng-class='mcCard' ng-src='./pictures/other/mc.png'>
+        <img id='diCard' ng-class='diCard' ng-src='./pictures/other/di.png'>
+      </div>
+
+      <div class='paymentMeth'>
+      <input type='radio' name='verify' ng-click='creditCard(); creditCardInfo=!creditCardInfo'>
+      <div class='paddingLeft'>Credit Card</div>
+      </div>
+
+      <div ng-hide='creditCardInfo'>
+        <input type='text' ng-change='checkCreditCard(number)' ng-model='number'>
+      </div>
+
+      <div class='paymentMeth'>
+      <span class='paddingLeftApplyDisc'>Apply Discount Code ▼</span>
+      </div>
+
+    </div>
+    </div>
+</div>
+</div>

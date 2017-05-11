@@ -3,6 +3,13 @@ angular.module('familyVideo').service('mainService', function($http, $rootScope)
   //This 'this' is the mainService- used within a function
   let self=this;
 
+  this.serviceAddress='';
+
+  this.getAddress=function(address){
+    console.log('from serv', address)
+    this.serviceAddress=address;
+  }
+
   this.checkSessions=function(){
     return $http.get('/api/sessionCheck').then(function(response){
       return response;

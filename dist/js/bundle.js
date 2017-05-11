@@ -17,6 +17,14 @@ angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $u
     url: '/account/create',
     templateUrl: './views/createAccount.html',
     controller: "createAccountCtrl"
+  }).state('checkout', {
+    url: '/checkout',
+    templateUrl: './views/checkout.html',
+    controller: "checkoutCtrl"
+  }).state('verify', {
+    url: '/checkout/verify',
+    templateUrl: './views/verify.html',
+    controller: "verifyCtrl"
   });
 
   $urlRouterProvider.otherwise('/');
@@ -136,6 +144,13 @@ angular.module('familyVideo').service('mainService', function ($http, $rootScope
 
   //This 'this' is the mainService- used within a function
   var self = this;
+
+  this.serviceAddress = '';
+
+  this.getAddress = function (address) {
+    console.log('from serv', address);
+    this.serviceAddress = address;
+  };
 
   this.checkSessions = function () {
     return $http.get('/api/sessionCheck').then(function (response) {
@@ -1813,6 +1828,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(window, document);
 'use strict';
 
+angular.module('familyVideo').directive('navBar', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/navBar.html',
+    link: function link(scope) {},
+    controller: 'mainCtrl'
+  };
+});
+'use strict';
+
+angular.module('familyVideo').controller('checkoutCtrl', function ($scope, mainService, $state) {
+  $scope.checkout = function (address) {
+    console.log('from checkout ctrl', address);
+    mainService.getAddress(address);
+    if (address) {
+      $state.go('verify');
+    }
+  };
+});
+'use strict';
+
 angular.module('familyVideo').controller('createAccountCtrl', function ($scope, mainService) {
 
   $scope.createUser = function (user) {
@@ -1895,9 +1932,7 @@ angular.module('familyVideo').controller('searchCtrl', function ($scope, mainSer
 angular.module('familyVideo').controller('signInCtrl', function ($scope, mainService, $state) {
 
   $scope.logIn = function (account) {
-    console.log('made it thi far');
     mainService.logInUser(account).then(function (response) {
-      console.log('from login', response);
       $scope.account = {};
 
       alert('Hello');
@@ -1906,13 +1941,39 @@ angular.module('familyVideo').controller('signInCtrl', function ($scope, mainSer
 });
 'use strict';
 
-angular.module('familyVideo').directive('navBar', function () {
+angular.module('familyVideo').controller('verifyCtrl', function ($scope, mainService, $state) {
 
-  return {
-    restrict: 'E',
-    templateUrl: './views/navBar.html',
-    link: function link(scope) {},
-    controller: 'mainCtrl'
+  $scope.aeCard = ['opacityCard'];
+  $scope.viCard = ['opacityCard'];
+  $scope.mcCard = ['opacityCard'];
+  $scope.diCard = ['opacityCard'];
+
+  $scope.creditCardInfo = true;
+
+  $scope.address = mainService.serviceAddress;
+
+  $scope.creditCard = function () {};
+
+  $scope.checkCreditCard = function (number) {
+    $scope.aeCard = ['opacityCard'];
+    $scope.viCard = ['opacityCard'];
+    $scope.mcCard = ['opacityCard'];
+    $scope.diCard = ['opacityCard'];
+
+    console.log(number);
+    if (parseInt(number[0]) === 3) {
+      console.log('Visa');
+      $scope.aeCard.pop('opacityCard');
+    } else if (parseInt(number[0]) === 4) {
+      console.log('Visa');
+      $scope.viCard.pop('opacityCard');
+    } else if (parseInt(number[0]) === 5) {
+      console.log('Mastercard');
+      $scope.mcCard.pop('opacityCard');
+    } else if (parseInt(number[0]) === 6) {
+      console.log('Discover');
+      $scope.diCard.pop('opacityCard');
+    }
   };
 });
 //# sourceMappingURL=bundle.js.map

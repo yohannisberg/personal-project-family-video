@@ -20,8 +20,17 @@ angular.module('familyVideo', ['ui.router'])
           url: '/account/create',
           templateUrl: './views/createAccount.html',
           controller: "createAccountCtrl"
+            })
+    .state('checkout', {
+          url: '/checkout',
+          templateUrl: './views/checkout.html',
+          controller: "checkoutCtrl"
+            })
+    .state('verify', {
+          url: '/checkout/verify',
+          templateUrl: './views/verify.html',
+          controller: "verifyCtrl"
             });
-
 
     $urlRouterProvider
         .otherwise('/');

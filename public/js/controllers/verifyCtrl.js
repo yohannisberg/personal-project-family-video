@@ -5,6 +5,8 @@ angular.module('familyVideo').controller('verifyCtrl', function($scope, mainServ
   $scope.mcCard=['opacityCard'];
   $scope.diCard=['opacityCard'];
 
+  $scope.discountCode=true;
+
   $scope.creditCardInfo=true;
 
   $scope.address=mainService.serviceAddress;

@@ -22,27 +22,52 @@
       <input type='radio' name='verify'><img ng-src='./pictures/other/paypal.png'>PayPal
       </div>
 
-      <div class='cards'>
-        <img id='aeCard' ng-class='aeCard' ng-src='./pictures/other/ae.png'>
-        <img id='viCard' ng-class='viCard' ng-src='./pictures/other/vi.png'>
-        <img id='mcCard' ng-class='mcCard' ng-src='./pictures/other/mc.png'>
-        <img id='diCard' ng-class='diCard' ng-src='./pictures/other/di.png'>
-      </div>
-
       <div class='paymentMeth'>
       <input type='radio' name='verify' ng-click='creditCard(); creditCardInfo=!creditCardInfo'>
       <div class='paddingLeft'>Credit Card</div>
       </div>
 
       <div ng-hide='creditCardInfo'>
-        <input type='text' ng-change='checkCreditCard(number)' ng-model='number'>
+
+        <div class='cards'>
+          <img id='aeCard' ng-class='aeCard' ng-src='./pictures/other/ae.png'>
+          <img id='viCard' ng-class='viCard' ng-src='./pictures/other/vi.png'>
+          <img id='mcCard' ng-class='mcCard' ng-src='./pictures/other/mc.png'>
+          <img id='diCard' ng-class='diCard' ng-src='./pictures/other/di.png'>
+        </div>
+
+        <input class='creditCardInput' type='text' ng-change='checkCreditCard(number)' ng-model='number' placeholder='Credit Card Number' required>
       </div>
 
       <div class='paymentMeth'>
-      <span class='paddingLeftApplyDisc'>Apply Discount Code ▼</span>
+      <div class='paddingLeftApplyDisc' ng-click='discountCode=!discountCode'>Apply Discount Code ▼</div>
+      </div>
+
+      <div ng-hide='discountCode'>
+
+        <input class='discountCodeInput' type='text' placeholder='Enter discount code'>
+
       </div>
 
     </div>
+
+    <div class='verifyRightSide'>
+      <div class='orderSummaryWrapper'>
+        <div class='orderSummary'>Order Summary</div>
+
+        <div class='orderSummaryContent'>
+          <div class='orderSummarySpaceBetween'><span>Cart Subtotal</span><span>Placeholder</span></div>
+          <div class='orderSummarySpaceBetween'><span>Shipping</span><span>$1.99</span></div>
+          <div class='orderSummarySpaceBetween'><span>Tax</span><span>$0.00</span></div>
+          <div class='orderSummarySpaceBetween'><span>Order Total Incl. Tax</span><span class='bold'>Placeholder</span></div>
+        </div>
+
+        <div class='orderSummary'>Placeholder Items in Cart</div>
+
+      </div>
+
     </div>
+
+  </div>
 </div>
 </div>

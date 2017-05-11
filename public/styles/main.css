@@ -69,12 +69,12 @@
     float: right;
   }
 
-  .checkoutWhiteBackground{
+  .verifyWhiteBackground{
     background-color: white;
     width:100vw;
     height:100vh;
     color: black;
-    padding-bottom: 80px;
+    padding-bottom: 170px;
   }
 }
 
@@ -87,12 +87,12 @@
     width: 100%;
   }
 
-  .checkoutWhiteBackground{
+  .verifyWhiteBackground{
     background-color: white;
     width:100vw;
     height:100vh;
     color: black;
-    padding-bottom: 456px;
+    padding-bottom: 510px;
   }
 }
 /*End of verify checkout page*/
@@ -1030,4 +1030,26 @@ padding-right: 47px;
   bottom: 0px;
   background-color: red;
   position: relative;
+}
+
+.checkoutWhiteBackground{
+  background-color: white;
+  width:100vw;
+  height:828px;
+  color: black;
+  padding-bottom: 80px;
+}
+
+.placeOrderButton{
+  background-color: #ff6200;
+  font-weight: 400;
+  font-size: 17px;
+  color: white;
+  padding: 7px 13px;
+  width: 150px;
+  height: 36px;
+  margin-top: 20px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
 }

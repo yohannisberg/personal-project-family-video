@@ -1828,6 +1828,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(window, document);
 'use strict';
 
+angular.module('familyVideo').directive('navBar', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/navBar.html',
+    link: function link(scope) {},
+    controller: 'mainCtrl'
+  };
+});
+'use strict';
+
 angular.module('familyVideo').controller('checkoutCtrl', function ($scope, mainService, $state) {
   $scope.checkout = function (address) {
     console.log('from checkout ctrl', address);
@@ -1965,17 +1976,6 @@ angular.module('familyVideo').controller('verifyCtrl', function ($scope, mainSer
       console.log('Discover');
       $scope.diCard.pop('opacityCard');
     }
-  };
-});
-'use strict';
-
-angular.module('familyVideo').directive('navBar', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './views/navBar.html',
-    link: function link(scope) {},
-    controller: 'mainCtrl'
   };
 });
 //# sourceMappingURL=bundle.js.map

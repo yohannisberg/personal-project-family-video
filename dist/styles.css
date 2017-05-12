@@ -879,16 +879,6 @@
 .bold {
   font-weight: 700; }
 
-.footer {
-  width: 1280px;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: auto;
-  height: 100px;
-  bottom: 0px;
-  background-color: red;
-  position: relative; }
-
 .checkoutWhiteBackground {
   background-color: white;
   width: 100vw;
@@ -908,6 +898,48 @@
   text-decoration: none;
   border: 0;
   cursor: pointer; }
+
+.footer {
+  /*width: 1280px;*/
+  padding-left: 20px;
+  padding-right: 20px;
+  width: auto;
+  height: 415px;
+  bottom: 0px;
+  background: #252525;
+  position: relative; }
+
+.footerInnards {
+  max-width: 712px;
+  width: auto;
+  background: #252525;
+  position: relative;
+  top: 56px; }
+
+.footerInnards h1 {
+  font-size: 16px;
+  font-weight: 600; }
+
+.footerWrap {
+  display: flex;
+  /*justify-content: space-between;*/
+  color: #959595; }
+
+.footerMenuWrap {
+  font-weight: 500;
+  max-width: 182px;
+  margin-right: 15px; }
+
+.footerMenuWrap li {
+  padding-top: 10px; }
+
+.redFont {
+  color: red; }
+
+.highlandFooterPic {
+  position: absolute;
+  right: 15px;
+  top: 103px; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

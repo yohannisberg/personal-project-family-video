@@ -48,6 +48,8 @@ angular.module('familyVideo').service('mainService', function($http, $rootScope)
   //   })
   // }
 
+  // this.forVerify='nope';
+
   this.logInUser=function(account){
     // console.log('thisbetter work',account.email, account.password)
     return $http({
@@ -56,6 +58,7 @@ angular.module('familyVideo').service('mainService', function($http, $rootScope)
       data: account
     }).then(function(response){
       console.log('IF THIS WORKS YOURE GOOD TO GO', response)
+      // this.forVerify=reponse;
       $rootScope.$emit('user', response.data);
       return response;
     })
@@ -81,6 +84,19 @@ angular.module('familyVideo').service('mainService', function($http, $rootScope)
         movie: movie
       }
     }).then(function(response){
+      return response;
+    })
+  }
+
+  this.deleteCart=function(id){
+    return $http({
+      method: 'POST',
+      url: '/api/deleteCart',
+      data: {
+        id: id
+      }
+    }).then(function(response){
+      console.log('?from service', response)
       return response;
     })
   }

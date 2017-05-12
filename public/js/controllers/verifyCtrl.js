@@ -39,4 +39,18 @@ angular.module('familyVideo').controller('verifyCtrl', function($scope, mainServ
   }
   }
 
+  $scope.placeOrder=function(){
+    // console.log('yo')
+    // console.log(mainService.forVerify)
+    mainService.findAccount().then(function(response){
+      let theId=response.data.id;
+      mainService.deleteCart(theId).then(function(response){
+        if(response){
+          console.log('wroekd')
+        }
+      })
+    })
+ }
+
+
 })

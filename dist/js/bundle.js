@@ -80,7 +80,6 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   // $scope.findAccount();
 
   $rootScope.$on('user', function (response) {
-    console.log(response.data);
     $scope.user = response;
   });
 
@@ -95,6 +94,7 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
 
   $scope.showCart = function () {
     mainService.showCart().then(function (response) {
+      console.log(response);
       if (response.data === 'NotSignedIn') {
         $scope.emptyCart = false;
         $scope.shoppingCart = true;
@@ -190,6 +190,8 @@ angular.module('familyVideo').service('mainService', function ($http, $rootScope
   //   })
   // }
 
+  // this.forVerify='nope';
+
   this.logInUser = function (account) {
     // console.log('thisbetter work',account.email, account.password)
     return $http({
@@ -198,6 +200,7 @@ angular.module('familyVideo').service('mainService', function ($http, $rootScope
       data: account
     }).then(function (response) {
       console.log('IF THIS WORKS YOURE GOOD TO GO', response);
+      // this.forVerify=reponse;
       $rootScope.$emit('user', response.data);
       return response;
     });
@@ -221,6 +224,19 @@ angular.module('familyVideo').service('mainService', function ($http, $rootScope
         movie: movie
       }
     }).then(function (response) {
+      return response;
+    });
+  };
+
+  this.deleteCart = function (id) {
+    return $http({
+      method: 'POST',
+      url: '/api/deleteCart',
+      data: {
+        id: id
+      }
+    }).then(function (response) {
+      console.log('?from service', response);
       return response;
     });
   };
@@ -1828,17 +1844,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(window, document);
 'use strict';
 
-angular.module('familyVideo').directive('navBar', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './views/navBar.html',
-    link: function link(scope) {},
-    controller: 'mainCtrl'
-  };
-});
-'use strict';
-
 angular.module('familyVideo').controller('checkoutCtrl', function ($scope, mainService, $state) {
   $scope.checkout = function (address) {
     console.log('from checkout ctrl', address);
@@ -1868,6 +1873,9 @@ angular.module('familyVideo').controller('createAccountCtrl', function ($scope, 
     // user.first_name = '';
   };
 });
+'use strict';
+
+angular.module('familyVideo').controller('footerCtrl', function ($scope, mainService) {});
 'use strict';
 
 angular.module('familyVideo').controller('homeCtrl', function ($scope, mainService) {});
@@ -1976,6 +1984,41 @@ angular.module('familyVideo').controller('verifyCtrl', function ($scope, mainSer
       console.log('Discover');
       $scope.diCard.pop('opacityCard');
     }
+  };
+
+  $scope.placeOrder = function () {
+    // console.log('yo')
+    // console.log(mainService.forVerify)
+    mainService.findAccount().then(function (response) {
+      var theId = response.data.id;
+      mainService.deleteCart(theId).then(function (response) {
+        if (response) {
+          console.log('wroekd');
+        }
+      });
+    });
+  };
+});
+'use strict';
+
+angular.module('familyVideo').directive('footer', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/footer.html',
+    link: function link(scope) {},
+    controller: 'footerCtrl'
+  };
+});
+'use strict';
+
+angular.module('familyVideo').directive('navBar', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/navBar.html',
+    link: function link(scope) {},
+    controller: 'mainCtrl'
   };
 });
 //# sourceMappingURL=bundle.js.map

@@ -164,6 +164,17 @@ app.post('/api/deleteMovie', function(req, res) {
 	})
 })
 
+app.post('/api/deleteCart', function(req, res) {
+	const userId=req.body.id;
+	console.log('from da server', userId)
+	db.deleteUserCart([userId], function(err, order) {
+		if(!err){
+			console.log('didnt work', err, 'it worked', order)
+			res.send(order)
+		}
+	})
+})
+
 app.get('/api/sessionCheck', function(req, resp) {
   resp.status(200).send(req.sessionID)
 })

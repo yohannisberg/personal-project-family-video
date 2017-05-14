@@ -25,7 +25,7 @@
     <form ng-submit='controlData(searchQuery)'>
     <span ng-hide='searchBarClick'>
     <input ng-model='searchQuery' type='text' class='searchInput formTesting' placeholder='Search' maxlength='128'>
-    <a ui-sref="search">
+    <a ui-sref="search({title: searchQuery})">
       <img ng-click='controlData(searchQuery)' class = 'inputBackground' src ='./pictures/other/business-search.png' alt="Magnifying glass">
     </a>
     </span>

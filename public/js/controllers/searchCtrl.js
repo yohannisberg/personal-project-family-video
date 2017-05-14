@@ -1,4 +1,4 @@
-angular.module('familyVideo').controller('searchCtrl', function($scope, mainService, $interval){
+angular.module('familyVideo').controller('searchCtrl', function($scope, mainService, $interval, $stateParams){
 
   $scope.addToCart=function(movieObject){
     mainService.addMovieToCart(movieObject).then(function(){
@@ -7,6 +7,8 @@ angular.module('familyVideo').controller('searchCtrl', function($scope, mainServ
   };
 
   $scope.query=mainService.query;
+
+  console.log('fuckfase', $stateParams.title)
 
   // $interval(function(){
   //   console.log('from search rontrol,', $scope.query, "num2",mainService.query)

@@ -7,7 +7,7 @@ angular.module('familyVideo', ['ui.router'])
             controller: "homeCtrl"
         })
     .state('search', {
-          url: '/search/',
+          url: '/search/:title',
           templateUrl: './views/search.html',
           controller: "searchCtrl"
         })
@@ -30,7 +30,17 @@ angular.module('familyVideo', ['ui.router'])
           url: '/checkout/verify',
           templateUrl: './views/verify.html',
           controller: "verifyCtrl"
-            });
+            })
+    .state('signedIn', {
+          url: '/signedIn',
+          templateUrl: './views/signedIn.html',
+          controller: "signedInCtrl"
+            })
+    .state('accountCreated', {
+          url: '/accountCreated',
+          templateUrl: './views/accountCreated.html',
+          controller: "accountCreatedCtrl"
+        });
 
     $urlRouterProvider
         .otherwise('/');

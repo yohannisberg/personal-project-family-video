@@ -137,7 +137,12 @@
     right: 15px;
     top: 103px; }
   .footerMenuWrap li {
-    padding-top: 10px; } }
+    padding-top: 10px; }
+  .footerWrap {
+    display: flex;
+    justify-content: space-around;
+    color: #959595;
+    width: 81%; } }
 
 @media screen and (max-width: 899px) {
   .footer {
@@ -154,7 +159,11 @@
     position: relative;
     bottom: 0px; }
   .footerMenuWrap li {
-    display: none; } }
+    display: none; }
+  .footerWrap {
+    display: flex;
+    justify-content: center;
+    color: #959595; } }
 
 /*End of the footer on the home page*/
 @media screen and (min-width: 1100px) {
@@ -401,6 +410,7 @@
 .topBannerWrapper {
   width: 100vw;
   height: auto;
+  margin-bottom: -5px;
   /*max-height: 750px;*/
   /*display: flex;
   justify-content: center;*/ }
@@ -964,11 +974,6 @@
   font-size: 16px;
   font-weight: 600; }
 
-.footerWrap {
-  display: flex;
-  justify-content: center;
-  color: #959595; }
-
 .footerMenuWrap {
   font-weight: 500;
   width: 168px;
@@ -977,6 +982,31 @@
 
 .redFont {
   color: red; }
+
+.signedInWhiteBackground {
+  width: 100vw;
+  height: 544px;
+  background-color: white;
+  color: black; }
+
+.signedInWrapper {
+  display: flex;
+  justify-content: center; }
+
+.signedInItalics {
+  font-style: italic;
+  font-weight: 100;
+  font-size: 48px;
+  width: 1240px;
+  position: absolute;
+  top: 55px; }
+
+.signedInSubtitle {
+  font-weight: 100;
+  font-size: 25px;
+  width: 1240px;
+  position: absolute;
+  top: 165px; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

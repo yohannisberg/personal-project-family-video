@@ -3,8 +3,7 @@ angular.module('familyVideo').controller('signInCtrl', function($scope, mainServ
   $scope.logIn=function(account){
     mainService.logInUser(account).then(function(response) {
       $scope.account = {};
-
-      alert('Hello')
+      $state.go('signedIn')
     })
   }
 

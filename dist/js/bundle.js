@@ -6,7 +6,7 @@ angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $u
     templateUrl: "./views/home.html",
     controller: "homeCtrl"
   }).state('search', {
-    url: '/search/',
+    url: '/search/:title',
     templateUrl: './views/search.html',
     controller: "searchCtrl"
   }).state('account', {
@@ -25,6 +25,14 @@ angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $u
     url: '/checkout/verify',
     templateUrl: './views/verify.html',
     controller: "verifyCtrl"
+  }).state('signedIn', {
+    url: '/signedIn',
+    templateUrl: './views/signedIn.html',
+    controller: "signedInCtrl"
+  }).state('accountCreated', {
+    url: '/accountCreated',
+    templateUrl: './views/accountCreated.html',
+    controller: "accountCreatedCtrl"
   });
 
   $urlRouterProvider.otherwise('/');
@@ -1844,6 +1852,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(window, document);
 'use strict';
 
+angular.module('familyVideo').controller('accountCreatedCtrl', function ($scope, mainService) {
+  $scope.hi = 'whatup';
+});
+'use strict';
+
 angular.module('familyVideo').controller('checkoutCtrl', function ($scope, mainService, $state) {
   $scope.checkout = function (address) {
     console.log('from checkout ctrl', address);
@@ -1916,7 +1929,7 @@ angular.module('familyVideo').controller('homeCtrl', function ($scope, mainServi
 // }
 'use strict';
 
-angular.module('familyVideo').controller('searchCtrl', function ($scope, mainService, $interval) {
+angular.module('familyVideo').controller('searchCtrl', function ($scope, mainService, $interval, $stateParams) {
 
   $scope.addToCart = function (movieObject) {
     mainService.addMovieToCart(movieObject).then(function () {
@@ -1925,6 +1938,8 @@ angular.module('familyVideo').controller('searchCtrl', function ($scope, mainSer
   };
 
   $scope.query = mainService.query;
+
+  console.log('fuckfase', $stateParams.title);
 
   // $interval(function(){
   //   console.log('from search rontrol,', $scope.query, "num2",mainService.query)
@@ -1942,10 +1957,19 @@ angular.module('familyVideo').controller('signInCtrl', function ($scope, mainSer
   $scope.logIn = function (account) {
     mainService.logInUser(account).then(function (response) {
       $scope.account = {};
-
-      alert('Hello');
+      $state.go('signedIn');
     });
   };
+});
+'use strict';
+
+angular.module('familyVideo').controller('signedInCtrl', function ($scope, mainService, $state, $timeout) {
+
+  $timeout(function () {
+    $state.go('home');
+  }, 5000);
+
+  $timeout();
 });
 'use strict';
 

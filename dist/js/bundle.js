@@ -39,7 +39,7 @@ angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $u
 });
 'use strict';
 
-angular.module('familyVideo').controller('mainCtrl', function ($scope, mainService, $rootScope, $state) {
+angular.module('familyVideo').controller('mainCtrl', function ($scope, mainService, $rootScope, $state, $stateParams) {
 
   $scope.searchBarClick = true;
   $scope.shoppingCart = true;
@@ -59,9 +59,11 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   };
 
   $scope.controlData = function (query) {
+    console.log($stateParams, $scope.searchQuery);
+
     $scope.forSearch = query;
     mainService.getMovies(query).then(function (response) {
-      $state.go('search');
+      $state.go('search', { title: $scope.searchQuery });
       $scope.forHtml = response;
       $scope.searchQuery = '';
       $scope.searchBarClickMini = true;
@@ -1852,6 +1854,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(window, document);
 'use strict';
 
+angular.module('familyVideo').directive('footer', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/footer.html',
+    link: function link(scope) {},
+    controller: 'footerCtrl'
+  };
+});
+'use strict';
+
+angular.module('familyVideo').directive('navBar', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/navBar.html',
+    link: function link(scope) {},
+    controller: 'mainCtrl'
+  };
+});
+'use strict';
+
 angular.module('familyVideo').controller('accountCreatedCtrl', function ($scope, mainService) {
   $scope.hi = 'whatup';
 });
@@ -1938,8 +1962,6 @@ angular.module('familyVideo').controller('searchCtrl', function ($scope, mainSer
   };
 
   $scope.query = mainService.query;
-
-  console.log('fuckfase', $stateParams.title);
 
   // $interval(function(){
   //   console.log('from search rontrol,', $scope.query, "num2",mainService.query)
@@ -2037,27 +2059,5 @@ angular.module('familyVideo').controller('verifyCtrl', function ($scope, mainSer
   };
 
   $scope.forQuantity();
-});
-'use strict';
-
-angular.module('familyVideo').directive('footer', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './views/footer.html',
-    link: function link(scope) {},
-    controller: 'footerCtrl'
-  };
-});
-'use strict';
-
-angular.module('familyVideo').directive('navBar', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './views/navBar.html',
-    link: function link(scope) {},
-    controller: 'mainCtrl'
-  };
 });
 //# sourceMappingURL=bundle.js.map

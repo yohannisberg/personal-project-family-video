@@ -1,4 +1,4 @@
-angular.module('familyVideo').controller('mainCtrl', function($scope, mainService, $rootScope, $state){
+angular.module('familyVideo').controller('mainCtrl', function($scope, mainService, $rootScope, $state, $stateParams){
 
 $scope.searchBarClick=true;
 $scope.shoppingCart=true;
@@ -18,9 +18,11 @@ $scope.closeNav = function(){
 }
 
 $scope.controlData=function(query){
+  console.log($stateParams, $scope.searchQuery)
+
   $scope.forSearch=query;
   mainService.getMovies(query).then(function(response){
-    $state.go('search');
+    $state.go('search', {title: $scope.searchQuery});
     $scope.forHtml=response;
     $scope.searchQuery='';
     $scope.searchBarClickMini=true;

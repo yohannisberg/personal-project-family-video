@@ -8,8 +8,6 @@ angular.module('familyVideo').controller('searchCtrl', function($scope, mainServ
 
   $scope.query=mainService.query;
 
-  console.log('fuckfase', $stateParams.title)
-
   // $interval(function(){
   //   console.log('from search rontrol,', $scope.query, "num2",mainService.query)
   // }, 1000)

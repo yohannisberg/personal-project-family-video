@@ -61,7 +61,7 @@ $scope.findAccount()
 
 $scope.showCart=function(){
   mainService.showCart().then(function(response){
-    console.log(response)
+    console.log(response.data.length)
     if(response.data==='NotSignedIn'){
     $scope.emptyCart=false;
     $scope.shoppingCart=true;

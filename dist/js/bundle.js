@@ -94,7 +94,7 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
 
   $scope.showCart = function () {
     mainService.showCart().then(function (response) {
-      console.log(response);
+      console.log(response.data.length);
       if (response.data === 'NotSignedIn') {
         $scope.emptyCart = false;
         $scope.shoppingCart = true;
@@ -1962,6 +1962,9 @@ angular.module('familyVideo').controller('verifyCtrl', function ($scope, mainSer
 
   $scope.address = mainService.serviceAddress;
 
+  $scope.quantity = '';
+  $scope.cartSubtotal = '';
+
   $scope.creditCard = function () {};
 
   $scope.checkCreditCard = function (number) {
@@ -1998,6 +2001,18 @@ angular.module('familyVideo').controller('verifyCtrl', function ($scope, mainSer
       });
     });
   };
+
+  $scope.forQuantity = function () {
+    mainService.showCart().then(function (response) {
+      console.log(response);
+      console.log(response.data.length);
+      var quan = response.data.length;
+      $scope.quantity = quan;
+      $scope.cartSubtotal = quan * 4.99 + 1.99;
+    });
+  };
+
+  $scope.forQuantity();
 });
 'use strict';
 

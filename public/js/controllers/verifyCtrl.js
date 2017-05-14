@@ -11,6 +11,9 @@ angular.module('familyVideo').controller('verifyCtrl', function($scope, mainServ
 
   $scope.address=mainService.serviceAddress;
 
+  $scope.quantity='';
+  $scope.cartSubtotal='';
+
   $scope.creditCard=function(){
   }
 
@@ -52,5 +55,17 @@ angular.module('familyVideo').controller('verifyCtrl', function($scope, mainServ
     })
  }
 
+ $scope.forQuantity=function(){
+   mainService.showCart().then(function(response){
+     console.log(response)
+     console.log(response.data.length)
+     var quan=response.data.length;
+     $scope.quantity=quan;
+     $scope.cartSubtotal=quan*4.99+1.99;
+
+   })
+ }
+
+$scope.forQuantity();
 
 })

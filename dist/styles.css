@@ -4,13 +4,26 @@
     text-align: center;
     height: 20px;
     width: 94%;
-    font-size: 10px; } }
+    font-size: 10px; }
+  .searchWrapperRight {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px; } }
 
 @media screen and (min-width: 576px) {
   .leftNav {
     text-align: center;
     height: 20px;
-    width: 100%; } }
+    width: 100%; }
+  .searchWrapperRight {
+    width: 19%;
+    height: 100%;
+    float: left;
+    font-size: 14px;
+    font-weight: 600; } }
 
 /*The customer login page*/
 @media screen and (max-width: 666px) {
@@ -118,9 +131,16 @@
     font-weight: 100;
     font-size: 16px;
     font-style: italic;
-    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; } }
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+  .individualMovieWrapper {
+    width: 50%;
+    text-align: center; } }
 
 /*End of the titles on the home page*/
+@media screen and (min-width: 745px) {
+  .individualMovieWrapper {
+    width: 25%; } }
+
 /*The footer on the home page*/
 @media screen and (min-width: 900px) {
   .footer {
@@ -142,7 +162,10 @@
     display: flex;
     justify-content: space-around;
     color: #959595;
-    width: 81%; } }
+    width: 81%; }
+  .footerInnards h1 {
+    font-size: 16px;
+    font-weight: 600; } }
 
 @media screen and (max-width: 899px) {
   .footer {
@@ -151,7 +174,7 @@
     bottom: 0px;
     background: #252525;
     position: relative;
-    bottom: 50px; }
+    bottom: 0px; }
   .highlandFooterPic {
     display: flex;
     justify-content: center;
@@ -163,13 +186,17 @@
   .footerWrap {
     display: flex;
     justify-content: center;
-    color: #959595; } }
+    color: #959595; }
+  .footerInnards h1 {
+    font-size: 16px;
+    font-weight: 600;
+    align-items: center; } }
 
 /*End of the footer on the home page*/
 @media screen and (min-width: 1100px) {
   .movieCover {
-    width: 240px;
-    height: 300px; }
+    width: 195px;
+    height: 255px; }
   .individualMovieWrapper {
     width: 25%; }
   .individualMovieWrapper li {
@@ -191,8 +218,9 @@
 @media screen and (max-width: 1099px) {
   .movieCover {
     width: 55%; }
-  .individualMovieWrapper {
-    width: 25%; }
+  /*.individualMovieWrapper{
+    width: 25%;
+  }*/
   .individualMovieWrapper li {
     font-size: 100%; }
   .addToCart {
@@ -291,7 +319,22 @@
     position: absolute;
     top: 90px;
     width: 100%;
-    z-index: 3; } }
+    z-index: 3; }
+  .signedInItalics {
+    font-style: italic;
+    font-weight: 100;
+    font-size: 48px;
+    width: 100%;
+    position: absolute;
+    top: 55px;
+    padding-left: 20px; }
+  .signedInSubtitle {
+    font-weight: 100;
+    font-size: 25px;
+    width: 100%;
+    position: absolute;
+    top: 165px;
+    padding-left: 20px; } }
 
 @media screen and (min-width: 1240px) {
   .leftNav {
@@ -396,7 +439,20 @@
     position: absolute;
     top: 136px;
     width: 1240px;
-    z-index: 3; } }
+    z-index: 3; }
+  .signedInItalics {
+    font-style: italic;
+    font-weight: 100;
+    font-size: 48px;
+    width: 1240px;
+    position: absolute;
+    top: 55px; }
+  .signedInSubtitle {
+    font-weight: 100;
+    font-size: 25px;
+    width: 1240px;
+    position: absolute;
+    top: 165px; } }
 
 .body {
   color: white;
@@ -693,7 +749,8 @@
 .movieWrapper {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 81%; }
 
 .searchHeader {
   font-size: 40px;
@@ -970,10 +1027,6 @@
   position: relative;
   top: 56px; }
 
-.footerInnards h1 {
-  font-size: 16px;
-  font-weight: 600; }
-
 .footerMenuWrap {
   font-weight: 500;
   width: 168px;
@@ -993,20 +1046,12 @@
   display: flex;
   justify-content: center; }
 
-.signedInItalics {
-  font-style: italic;
-  font-weight: 100;
-  font-size: 48px;
-  width: 1240px;
-  position: absolute;
-  top: 55px; }
-
-.signedInSubtitle {
-  font-weight: 100;
-  font-size: 25px;
-  width: 1240px;
-  position: absolute;
-  top: 165px; }
+.searchRightMenu {
+  border-bottom: 1px solid #d1d1d1;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  min-width: 131px;
+  width: 85%; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

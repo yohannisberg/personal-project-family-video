@@ -1,13 +1,13 @@
-angular.module('familyVideo').controller('createAccountCtrl', function($scope, mainService){
+angular.module('familyVideo').controller('createAccountCtrl', function($scope, mainService, $state){
 
   $scope.createUser=function(user){
     if (user.password === $scope.confirmPassword) {
-      console.log('passwords match');
       mainService.createAccount(user)
       $scope.user={};
       $scope.confirmPassword="";
+      $state.go('accountCreated')
     } else {
-      alert('nope')
+      console.log('nope')
       // use sweet alerts
       // http://t4t5.github.io/sweetalert/
       // or use a directive
@@ -16,4 +16,5 @@ angular.module('familyVideo').controller('createAccountCtrl', function($scope, m
     // user.first_name = '';
 
   }
+
 })

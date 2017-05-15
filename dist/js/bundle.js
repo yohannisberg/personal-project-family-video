@@ -105,7 +105,7 @@ angular.module('familyVideo').controller('mainCtrl', function ($scope, mainServi
   $scope.showCart = function () {
     mainService.showCart().then(function (response) {
       console.log(response.data.length);
-      if (response.data === 'NotSignedIn') {
+      if (response.data === 'NotSignedIn' || response.data.length === 0) {
         $scope.emptyCart = false;
         $scope.shoppingCart = true;
       } else {
@@ -1854,8 +1854,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(window, document);
 'use strict';
 
-angular.module('familyVideo').controller('accountCreatedCtrl', function ($scope, mainService) {
-  $scope.hi = 'whatup';
+angular.module('familyVideo').controller('accountCreatedCtrl', function ($scope, mainService, $timeout, $state) {
+  $timeout(function () {
+    $state.go('home');
+  }, 5000);
+
+  $timeout();
 });
 'use strict';
 
@@ -1870,16 +1874,16 @@ angular.module('familyVideo').controller('checkoutCtrl', function ($scope, mainS
 });
 'use strict';
 
-angular.module('familyVideo').controller('createAccountCtrl', function ($scope, mainService) {
+angular.module('familyVideo').controller('createAccountCtrl', function ($scope, mainService, $state) {
 
   $scope.createUser = function (user) {
     if (user.password === $scope.confirmPassword) {
-      console.log('passwords match');
       mainService.createAccount(user);
       $scope.user = {};
       $scope.confirmPassword = "";
+      $state.go('accountCreated');
     } else {
-      alert('nope');
+      console.log('nope');
       // use sweet alerts
       // http://t4t5.github.io/sweetalert/
       // or use a directive

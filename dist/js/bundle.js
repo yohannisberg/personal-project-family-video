@@ -1854,28 +1854,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(window, document);
 'use strict';
 
-angular.module('familyVideo').directive('footer', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './views/footer.html',
-    link: function link(scope) {},
-    controller: 'footerCtrl'
-  };
-});
-'use strict';
-
-angular.module('familyVideo').directive('navBar', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './views/navBar.html',
-    link: function link(scope) {},
-    controller: 'mainCtrl'
-  };
-});
-'use strict';
-
 angular.module('familyVideo').controller('accountCreatedCtrl', function ($scope, mainService) {
   $scope.hi = 'whatup';
 });
@@ -2059,5 +2037,27 @@ angular.module('familyVideo').controller('verifyCtrl', function ($scope, mainSer
   };
 
   $scope.forQuantity();
+});
+'use strict';
+
+angular.module('familyVideo').directive('footer', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/footer.html',
+    link: function link(scope) {},
+    controller: 'footerCtrl'
+  };
+});
+'use strict';
+
+angular.module('familyVideo').directive('navBar', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './views/navBar.html',
+    link: function link(scope) {},
+    controller: 'mainCtrl'
+  };
 });
 //# sourceMappingURL=bundle.js.map

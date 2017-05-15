@@ -1,5 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,600,700');
 
+@media screen and (max-width: 350px){
+  .secondBannerTitle{
+    font-style: italic;
+    font-weight: 100;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .secondBannerSubtitle{
+    font-style: italic;
+    font-weight: 100;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .secondBannerWrapper{
+    padding:23px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 351px){
+  .secondBannerTitle{
+    font-style: italic;
+    font-weight: 100;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2.3rem;
+  }
+
+  .secondBannerSubtitle{
+    font-style: italic;
+    font-weight: 100;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .secondBannerWrapper{
+    padding:40px;
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 575px) {
   .leftNav{
     text-align: center;
@@ -31,6 +75,65 @@
     float: left;
     font-size: 14px;
     font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  #topBanner{
+    height: 350px;
+    width: 100%;
+    background: url('./pictures/top-banner/la-la-land.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    background-position: center;
+  }
+
+  .whiteSeparator{
+    height:3px;
+    width:100%;
+    background-color: white;
+    top: 125px;
+    position: relative;
+  }
+
+  #secondBanner{
+    height: 300px;
+    width: 100%;
+    background: url('./pictures/eighth-banner/homepage-family-spiff.jpg');
+    background-size: cover;
+    position: relative;
+    top: 125px;
+    background-position: center;
+  }
+}
+
+@media screen and (min-width: 591px) {
+  #topBanner{
+    height: 350px;
+    width: 100%;
+    background: url('./pictures/top-banner/la-la-land.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+  }
+
+  .whiteSeparator{
+    height:3px;
+    width:100%;
+    background-color: white;
+    top: 125px;
+    position: relative;
+  }
+
+  #secondBanner{
+    height: 300px;
+    width: 100%;
+    background: url('./pictures/eighth-banner/homepage-family-spiff.jpg');
+    background-size: cover;
+    position: relative;
+    top: 125px;
+    background-position: center;
   }
 }
 
@@ -407,6 +510,86 @@
     top:165px;
     padding-left: 20px;
   }
+
+  /*#topBanner{
+    height: 350px;
+    width: 100%;
+    background: url('./pictures/top-banner/fantastic-beasts-hero.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+  }*/
+
+  .homeTitle{
+    position: absolute;
+    top:98px;
+    color:white;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    font-weight: 100;
+    font-size: 30px;
+    font-style: italic;
+    margin-bottom:14px;
+
+    text-shadow:
+        3px 3px 0 #000,
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000;
+  }
+
+  .titlePrice{
+    /*position: absolute;
+    top:186px;*/
+    z-index: 0;
+    color:white;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 10.5rem;
+    margin-bottom: 2.5rem;
+
+    text-shadow:
+        3px 3px 0 #000,
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000;
+  }
+
+  .ninety{
+    height:125px;
+  }
+
+  .footerMenuWrap{
+    font-weight: 500;
+    width: 168px;
+    height: 162px;
+    margin-right: 15px;
+    text-align: center;
+  }
+
+  /*.secondBannerTitle{
+    font-style: italic;
+    font-weight: 100;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2.3rem;
+  }
+
+  .secondBannerSubtitle{
+    font-style: italic;
+    font-weight: 100;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .secondBannerWrapper{
+    padding:40px;
+    text-align: center;
+  }*/
 }
 
 @media screen and (min-width: 1240px) {
@@ -528,7 +711,6 @@
     top: 25px;
     width: 25px;
     z-index: 4;
-
   }
 
   .miniSearchInput{
@@ -573,6 +755,103 @@
     width: 1240px;
     position: absolute;
     top:165px;
+  }
+
+  #topBanner{
+    height: 750px;
+    width: 100%;
+    background: url('./pictures/top-banner/la-la-land.jpg');
+    background-size: cover;
+    position: absolute;
+    top: -90px;
+  }
+
+  .whiteSeparator{
+    height:3px;
+    width:100%;
+    background-color: white;
+    top: 665px;
+    position: relative;
+  }
+
+  #secondBanner{
+    height: 485px;
+    width: 100%;
+    background: url('./pictures/eighth-banner/homepage-family-spiff.jpg');
+    background-size: cover;
+    position: relative;
+    top: 665px;
+  }
+
+  .homeTitle{
+    position: absolute;
+    top:185px;
+    color:white;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    font-weight: 100;
+    font-size: 5vw;
+    font-style: italic;
+
+    text-shadow:
+        3px 3px 0 #000,
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000;
+  }
+
+  .titlePrice{
+    position: absolute;
+    top:292px;
+    color:white;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    font-weight: 100;
+    font-size: 3vw;
+    text-shadow:
+        3px 3px 0 #000,
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000;
+  }
+
+  .ninety{
+    height:665px;
+  }
+
+  .footerMenuWrap{
+    font-weight: 500;
+    width: 168px;
+    height: 162px;
+    margin-right: 15px;
+  }
+
+  .secondBannerTitle{
+    font-style: italic;
+    font-weight: 100;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2.3rem;
+    position: absolute;
+    padding-left: 1.3rem;
+    width: 33%;
+  }
+
+  .secondBannerSubtitle{
+    font-style: italic;
+    font-weight: 100;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    font-size: 2.1rem;
+    position: absolute;
+    padding-left: 1.3rem;
+    width: 33%;
+  }
+
+  .secondBannerWrapper{
+    padding:50px;
   }
 }
 
@@ -1230,13 +1509,6 @@ padding-right: 47px;
   top: 56px;
 }
 
-.footerMenuWrap{
-  font-weight: 500;
-  width: 168px;
-  height: 162px;
-  margin-right: 15px;
-}
-
 .redFont{
   color:red;
 }
@@ -1259,40 +1531,4 @@ padding-right: 47px;
   padding-top: 10px;
   min-width: 131px;
   width: 85%;
-}
-
-.homeTitle{
-  position: absolute;
-  top:185px;
-  color:white;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  font-weight: 100;
-  font-size: 4vw;
-  font-style: italic;
-
-  text-shadow:
-      3px 3px 0 #000,
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-     -1px 1px 0 #000,
-      1px 1px 0 #000;
-}
-
-.titlePrice{
-  position: absolute;
-  top:262px;
-  color:white;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  font-weight: 100;
-  font-size: 3vw;
-  font-style: italic;
-
-  text-shadow:
-      3px 3px 0 #000,
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-     -1px 1px 0 #000,
-      1px 1px 0 #000;
 }

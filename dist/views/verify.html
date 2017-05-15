@@ -44,7 +44,7 @@
 
       <div class='redDiscountWrapper' ng-hide='redDiscount'>
       <div class='redLine' ng-hide='redDiscount'></div>
-      <div class='redDiscount' ng-hide='redDiscount'>${{totalWithDiscount}}</div>
+      <div class='redDiscount' ng-hide='redDiscount'>{{totalWithDiscount | currency}}</div>
       </div>
 
       <div ng-hide='discountCode'>

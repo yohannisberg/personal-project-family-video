@@ -1183,6 +1183,19 @@
   border: 0;
   cursor: pointer; }
 
+.placeOrderButton a {
+  /*background-color: #ff6200;*/
+  font-weight: 400;
+  font-size: 17px;
+  color: white;
+  padding: 7px 13px;
+  width: 150px;
+  height: 36px;
+  margin-top: 20px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer; }
+
 .footerInnards {
   /*max-width: 712px;*/
   width: auto;
@@ -1209,6 +1222,26 @@
   padding-top: 10px;
   min-width: 131px;
   width: 85%; }
+
+.redLine {
+  height: 2px;
+  background-color: red;
+  width: 50px;
+  position: absolute;
+  right: 31px;
+  top: 269px; }
+
+.redDiscount {
+  color: red;
+  position: absolute;
+  top: 260px;
+  right: 88px; }
+
+.redDiscountWrapper {
+  width: 1240px;
+  text-align: center;
+  position: absolute;
+  top: 0px; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

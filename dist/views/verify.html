@@ -42,10 +42,15 @@
       <div class='paddingLeftApplyDisc' ng-click='discountCode=!discountCode'>Apply Discount Code ▼</div>
       </div>
 
+      <div class='redDiscountWrapper' ng-hide='redDiscount'>
+      <div class='redLine' ng-hide='redDiscount'></div>
+      <div class='redDiscount' ng-hide='redDiscount'>${{totalWithDiscount}}</div>
+      </div>
+
       <div ng-hide='discountCode'>
-
+        <form ng-submit='applyRedDiscount()' >
         <input class='discountCodeInput' type='text' placeholder='Enter discount code'>
-
+        </form>
       </div>
 
       <button ng-click='placeOrder()' class='placeOrderButton' type='submit'><a ui-sref='checkedOut'>Place Order</a></button>

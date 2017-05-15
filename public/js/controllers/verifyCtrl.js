@@ -13,6 +13,9 @@ angular.module('familyVideo').controller('verifyCtrl', function($scope, mainServ
 
   $scope.quantity='';
   $scope.cartSubtotal='';
+  $scope.totalWithDiscount='';
+
+  $scope.redDiscount=true;
 
   $scope.creditCard=function(){
   }
@@ -62,10 +65,15 @@ angular.module('familyVideo').controller('verifyCtrl', function($scope, mainServ
      var quan=response.data.length;
      $scope.quantity=quan;
      $scope.cartSubtotal=quan*4.99+1.99;
-
+     $scope.totalWithDiscount=(quan*4.99+1.99)-5
    })
  }
 
 $scope.forQuantity();
+
+$scope.applyRedDiscount=function(){
+  console.log('yeah its working')
+  $scope.redDiscount=false;
+}
 
 })

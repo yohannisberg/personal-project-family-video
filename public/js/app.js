@@ -40,6 +40,11 @@ angular.module('familyVideo', ['ui.router'])
           url: '/accountCreated',
           templateUrl: './views/accountCreated.html',
           controller: "accountCreatedCtrl"
+        })
+    .state('checkedOut', {
+          url: '/checkedOut',
+          templateUrl: './views/checkedOut.html',
+          controller: "checkedOutCtrl"
         });
 
     $urlRouterProvider

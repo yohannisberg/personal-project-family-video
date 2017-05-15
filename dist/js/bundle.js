@@ -33,6 +33,10 @@ angular.module('familyVideo', ['ui.router']).config(function ($stateProvider, $u
     url: '/accountCreated',
     templateUrl: './views/accountCreated.html',
     controller: "accountCreatedCtrl"
+  }).state('checkedOut', {
+    url: '/checkedOut',
+    templateUrl: './views/checkedOut.html',
+    controller: "checkedOutCtrl"
   });
 
   $urlRouterProvider.otherwise('/');
@@ -1855,6 +1859,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 'use strict';
 
 angular.module('familyVideo').controller('accountCreatedCtrl', function ($scope, mainService, $timeout, $state) {
+  $timeout(function () {
+    $state.go('home');
+  }, 5000);
+
+  $timeout();
+});
+'use strict';
+
+angular.module('familyVideo').controller('checkedOutCtrl', function ($scope, mainService, $state, $timeout) {
+
   $timeout(function () {
     $state.go('home');
   }, 5000);
